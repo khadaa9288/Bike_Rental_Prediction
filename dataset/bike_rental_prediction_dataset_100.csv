@@ -1,0 +1,101 @@
+Customer_Age,License_Years,Rental_Days,Distance_KM,Engine_CC,Mileage_KMPL,Previous_Rentals,Customer_Rating,Bike_Age_Years,Season,Weather_Condition,Location,Bike_Type,Rental_Price_Per_Day,Total_Rental_Price
+25,1,12,144.8,150,30.6,3,4.2,8,Summer,Hot,City Center,Scooter,504.83,6057.96
+32,9,10,23.0,150,53.6,22,3.9,3,Spring,Rainy,City Center,Standard Bike,644.02,6440.2
+39,9,3,115.5,200,29.1,12,2.7,5,Winter,Clear,University Area,Electric Bike,703.67,2111.01
+42,3,9,153.7,500,60.4,11,3.9,1,Summer,Cloudy,Airport,Scooter,703.24,6329.16
+24,4,5,232.2,200,31.5,11,3.0,4,Summer,Cloudy,Market Area,Standard Bike,741.7,3708.5
+42,9,11,347.2,150,52.4,24,4.4,3,Summer,Rainy,University Area,Sports Bike,1160.98,12770.78
+54,29,12,164.2,300,40.8,20,3.6,4,Monsoon,Cloudy,Market Area,Electric Bike,655.78,7869.36
+55,14,10,205.7,150,64.9,4,3.8,1,Summer,Clear,Railway Station,Standard Bike,892.94,8929.4
+45,20,2,198.5,500,64.8,16,3.1,8,Summer,Clear,Market Area,Sports Bike,1388.82,2777.64
+39,4,5,223.0,300,25.1,23,4.7,4,Monsoon,Clear,Airport,Electric Bike,745.55,3727.75
+27,6,13,89.2,350,61.7,19,3.3,0,Summer,Rainy,Airport,Standard Bike,676.21,8790.73
+54,3,2,368.6,110,64.1,17,4.4,2,Spring,Cloudy,Airport,Electric Bike,942.44,1884.88
+45,7,9,380.1,150,53.5,12,5.0,5,Spring,Hot,City Center,Standard Bike,674.59,6071.31
+39,1,10,281.4,500,33.8,2,4.3,0,Monsoon,Clear,City Center,Sports Bike,1060.65,10606.5
+33,9,11,247.9,350,30.3,18,3.9,3,Spring,Hot,Railway Station,Scooter,548.33,6031.63
+45,12,7,211.4,100,51.9,20,2.7,6,Winter,Clear,Railway Station,Standard Bike,629.49,4406.43
+46,5,7,99.9,300,35.0,2,3.6,8,Summer,Clear,Market Area,Scooter,632.13,4424.91
+33,6,7,248.0,150,59.6,1,2.9,0,Spring,Rainy,University Area,Sports Bike,1054.88,7384.16
+53,22,12,248.5,150,36.9,1,3.9,8,Summer,Rainy,City Center,Scooter,464.17,5570.04
+50,30,14,270.3,100,63.4,2,4.6,1,Summer,Cloudy,University Area,Scooter,692.68,9697.52
+54,8,10,301.3,500,28.3,21,4.0,8,Winter,Rainy,Railway Station,Sports Bike,873.11,8731.1
+43,5,11,326.3,300,37.6,24,4.8,0,Spring,Clear,City Center,Electric Bike,985.65,10842.15
+34,5,6,441.6,150,39.8,5,3.6,8,Winter,Clear,Market Area,Sports Bike,1140.75,6844.5
+24,2,5,66.6,110,54.7,4,3.2,3,Winter,Cloudy,Airport,Electric Bike,720.46,3602.3
+21,1,11,217.6,160,26.8,10,4.4,4,Monsoon,Hot,Market Area,Cruiser,1156.33,12719.63
+25,2,12,452.9,350,26.4,11,4.0,2,Spring,Cloudy,City Center,Sports Bike,1303.79,15645.48
+20,2,4,344.2,110,39.1,17,4.7,6,Monsoon,Cloudy,Railway Station,Standard Bike,613.4,2453.6
+19,1,12,463.0,250,57.1,23,4.5,4,Monsoon,Clear,University Area,Scooter,558.43,6701.16
+32,4,14,460.0,200,37.2,25,4.7,3,Summer,Cloudy,University Area,Sports Bike,1468.88,20564.32
+22,3,6,324.3,250,52.2,17,3.3,0,Summer,Rainy,Railway Station,Electric Bike,900.57,5403.42
+34,2,2,302.3,200,54.1,10,3.6,8,Summer,Hot,Market Area,Standard Bike,710.75,1421.5
+45,1,9,463.5,350,52.5,23,4.3,3,Winter,Hot,City Center,Sports Bike,1245.04,11205.36
+25,5,9,161.5,250,38.0,22,3.2,2,Monsoon,Hot,University Area,Standard Bike,651.42,5862.78
+37,13,9,418.5,160,36.5,13,4.5,5,Spring,Hot,University Area,Standard Bike,714.93,6434.37
+28,11,2,149.1,500,38.4,24,3.1,4,Monsoon,Cloudy,Railway Station,Scooter,423.81,847.62
+48,20,14,386.6,300,41.6,20,3.9,6,Spring,Hot,Railway Station,Standard Bike,732.52,10255.28
+18,1,13,218.3,125,57.2,22,3.8,0,Monsoon,Clear,University Area,Standard Bike,744.78,9682.14
+51,18,10,165.5,300,49.5,23,4.7,6,Spring,Cloudy,University Area,Cruiser,1387.35,13873.5
+33,9,13,391.1,300,50.1,8,3.6,4,Monsoon,Rainy,Airport,Sports Bike,860.65,11188.45
+23,2,3,123.3,125,53.3,2,3.5,5,Spring,Hot,City Center,Standard Bike,697.51,2092.53
+42,25,10,473.6,100,59.3,24,3.9,7,Summer,Rainy,Airport,Cruiser,1358.77,13587.7
+44,18,12,370.0,500,60.9,15,3.0,6,Spring,Clear,University Area,Sports Bike,1273.89,15286.68
+43,24,3,421.8,125,64.2,17,2.6,6,Summer,Clear,University Area,Standard Bike,856.43,2569.29
+29,1,5,195.8,150,43.2,10,4.4,6,Winter,Hot,Airport,Scooter,471.9,2359.5
+52,2,6,119.9,110,56.2,20,2.6,0,Monsoon,Cloudy,City Center,Electric Bike,715.25,4291.5
+26,8,11,66.1,150,43.6,8,4.4,2,Summer,Cloudy,Airport,Scooter,638.48,7023.28
+37,19,11,454.9,250,40.9,22,3.0,3,Summer,Rainy,Market Area,Scooter,592.3,6515.3
+54,26,1,180.1,250,51.5,2,3.8,5,Summer,Hot,University Area,Scooter,561.06,561.06
+41,21,14,235.3,125,42.4,23,3.8,4,Spring,Hot,University Area,Electric Bike,834.98,11689.72
+33,3,5,442.0,150,55.0,18,4.0,6,Winter,Clear,University Area,Sports Bike,1119.86,5599.3
+31,6,13,136.6,160,60.2,22,4.7,8,Summer,Cloudy,City Center,Standard Bike,796.3,10351.9
+49,18,13,127.8,300,50.8,15,3.6,0,Summer,Rainy,Railway Station,Cruiser,1460.37,18984.81
+37,19,6,241.9,350,38.8,23,3.9,5,Spring,Rainy,Airport,Sports Bike,1000.06,6000.36
+30,6,2,374.0,125,32.7,23,3.7,8,Winter,Clear,Railway Station,Sports Bike,1144.18,2288.36
+29,5,1,356.9,125,36.0,1,3.9,2,Spring,Clear,City Center,Electric Bike,846.26,846.26
+48,15,6,100.3,100,35.1,15,2.8,1,Spring,Hot,City Center,Electric Bike,904.79,5428.74
+21,2,3,407.5,160,28.4,7,2.8,6,Monsoon,Hot,University Area,Cruiser,1065.25,3195.75
+55,14,5,288.6,100,49.4,23,2.7,3,Monsoon,Rainy,City Center,Standard Bike,486.51,2432.55
+53,3,3,11.3,300,52.6,15,3.2,3,Winter,Rainy,University Area,Scooter,449.01,1347.03
+34,7,7,66.2,150,50.9,8,4.6,1,Summer,Cloudy,Airport,Electric Bike,968.93,6782.51
+54,30,5,225.2,300,52.5,22,3.5,4,Spring,Hot,City Center,Electric Bike,802.84,4014.2
+45,24,6,305.8,100,28.7,21,4.6,0,Winter,Clear,Railway Station,Cruiser,1592.6,9555.6
+46,9,3,498.5,250,50.4,15,4.9,7,Winter,Hot,Airport,Sports Bike,1114.02,3342.06
+28,6,7,349.9,160,51.5,12,4.5,8,Summer,Hot,City Center,Sports Bike,1257.17,8800.19
+25,7,14,262.2,100,51.3,17,3.7,0,Monsoon,Rainy,Market Area,Cruiser,1101.55,15421.7
+21,2,5,279.1,160,42.5,22,3.7,0,Monsoon,Cloudy,Airport,Electric Bike,717.51,3587.55
+44,3,4,496.2,110,43.5,3,4.1,2,Spring,Rainy,Market Area,Sports Bike,1035.56,4142.24
+48,16,4,233.8,125,40.3,19,3.8,2,Summer,Rainy,University Area,Sports Bike,1256.78,5027.12
+50,9,14,11.3,160,58.5,18,5.0,7,Monsoon,Hot,Market Area,Cruiser,1085.2,15192.8
+53,25,9,194.8,200,59.8,22,3.1,6,Monsoon,Hot,City Center,Sports Bike,1010.48,9094.32
+42,13,11,398.3,125,44.8,1,2.8,5,Summer,Hot,City Center,Electric Bike,890.5,9795.5
+18,1,7,436.8,125,28.0,25,4.9,5,Spring,Clear,Airport,Electric Bike,887.72,6214.04
+38,21,12,444.8,300,59.9,1,4.0,3,Winter,Cloudy,City Center,Cruiser,1348.8,16185.6
+24,4,3,350.1,100,26.8,25,2.6,5,Winter,Hot,Railway Station,Standard Bike,678.26,2034.78
+54,22,13,98.2,125,28.2,12,4.0,3,Spring,Cloudy,Railway Station,Cruiser,1472.04,19136.52
+47,9,11,14.6,300,61.0,21,3.9,1,Spring,Rainy,Market Area,Sports Bike,1131.44,12445.84
+45,23,5,233.8,160,33.0,12,4.6,1,Monsoon,Hot,Market Area,Sports Bike,1087.79,5438.95
+36,1,14,332.5,160,25.3,21,4.4,0,Spring,Rainy,Railway Station,Electric Bike,822.66,11517.24
+32,11,4,314.2,125,50.1,20,4.1,4,Spring,Clear,Market Area,Sports Bike,1378.81,5515.24
+23,3,6,376.3,125,33.0,25,3.8,5,Winter,Cloudy,Airport,Cruiser,1408.53,8451.18
+36,11,13,66.4,110,30.6,7,4.7,6,Winter,Clear,University Area,Scooter,457.59,5948.67
+25,8,6,339.7,160,48.4,20,4.9,1,Monsoon,Hot,City Center,Electric Bike,800.18,4801.08
+53,11,10,118.5,110,50.4,14,4.8,4,Spring,Clear,Railway Station,Scooter,644.41,6444.1
+37,16,2,57.6,350,30.4,14,3.4,8,Spring,Cloudy,University Area,Scooter,568.3,1136.6
+44,9,1,348.2,150,42.7,7,4.6,1,Winter,Rainy,City Center,Cruiser,1111.98,1111.98
+25,8,2,334.8,500,63.8,1,4.5,3,Monsoon,Cloudy,City Center,Electric Bike,618.17,1236.34
+31,14,14,124.2,125,56.5,19,2.5,2,Monsoon,Rainy,Railway Station,Scooter,423.06,5922.84
+19,1,1,185.5,150,48.6,0,2.9,0,Monsoon,Hot,Market Area,Scooter,505.65,505.65
+48,15,13,187.4,500,29.4,16,3.1,0,Winter,Hot,City Center,Scooter,634.71,8251.23
+43,14,11,62.9,300,27.9,2,3.3,2,Summer,Cloudy,Airport,Electric Bike,904.26,9946.86
+53,23,6,196.6,500,46.2,14,3.8,6,Summer,Clear,Market Area,Standard Bike,775.48,4652.88
+32,7,6,415.4,250,41.6,3,3.3,5,Winter,Rainy,Railway Station,Cruiser,956.88,5741.28
+23,1,7,57.3,200,57.5,17,2.6,8,Winter,Clear,University Area,Sports Bike,1155.09,8085.63
+45,28,12,35.2,160,49.0,11,2.8,8,Monsoon,Cloudy,University Area,Standard Bike,577.12,6925.44
+40,18,6,66.3,160,48.0,25,3.6,8,Summer,Rainy,City Center,Standard Bike,605.37,3632.22
+37,11,6,13.0,125,47.7,12,2.7,0,Summer,Cloudy,University Area,Cruiser,1703.26,10219.56
+28,6,5,363.6,500,48.8,1,2.9,0,Summer,Rainy,University Area,Cruiser,1373.32,6866.6
+46,14,5,115.6,350,29.6,13,2.8,7,Winter,Clear,Railway Station,Cruiser,1336.93,6684.65
+21,1,4,157.7,150,55.7,24,3.1,5,Summer,Clear,University Area,Cruiser,1643.9,6575.6
+42,18,12,122.8,350,58.3,25,3.4,6,Summer,Hot,City Center,Cruiser,1602.08,19224.96
