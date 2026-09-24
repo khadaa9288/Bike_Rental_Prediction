@@ -1,0 +1,1577 @@
+{% extends "base.html" %}
+
+{% block title %}
+Bike Rental Prediction
+{% endblock %}
+
+{% block content %}
+
+<!-- =========================================================
+     HERO SECTION
+========================================================= -->
+
+<section class="prediction-hero">
+
+```
+<div class="container py-5">
+
+    <div class="row align-items-center g-5">
+
+        <!-- LEFT SIDE -->
+
+        <div class="col-lg-7 text-center text-lg-start">
+
+            <span class="hero-badge">
+                <i class="bi bi-stars me-2"></i>
+                AI POWERED PREDICTION
+            </span>
+
+            <h1 class="display-4 fw-bold mt-4">
+                Bike Rental
+                <span>Demand Prediction</span>
+            </h1>
+
+            <p class="hero-description mt-3">
+                Predict the expected number of bike rentals using
+                weather, season, time and other rental-related
+                information with our trained machine learning model.
+            </p>
+
+            <div class="d-flex flex-wrap justify-content-center justify-content-lg-start gap-3 mt-4">
+
+                <a href="#prediction-form"
+                   class="btn btn-light btn-lg px-4 rounded-pill fw-semibold">
+
+                    <i class="bi bi-arrow-down-circle me-2"></i>
+                    Start Prediction
+
+                </a>
+
+                <a href="{% url 'home' %}"
+                   class="btn btn-outline-light btn-lg px-4 rounded-pill">
+
+                    <i class="bi bi-house-door me-2"></i>
+                    Home
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- RIGHT SIDE -->
+
+        <div class="col-lg-5">
+
+            <div class="hero-bike-card">
+
+                <div class="floating-circle circle-one"></div>
+                <div class="floating-circle circle-two"></div>
+
+                <div class="bike-icon">
+
+                    <i class="bi bi-bicycle"></i>
+
+                </div>
+
+                <h4 class="fw-bold mt-4">
+                    Smart Rental Prediction
+                </h4>
+
+                <p class="mb-0">
+                    Enter your rental conditions and get
+                    an estimated demand instantly.
+                </p>
+
+                <div class="row text-center mt-4">
+
+                    <div class="col-4">
+
+                        <div class="mini-icon">
+                            <i class="bi bi-cloud-sun"></i>
+                        </div>
+
+                        <small>
+                            Weather
+                        </small>
+
+                    </div>
+
+                    <div class="col-4">
+
+                        <div class="mini-icon">
+                            <i class="bi bi-calendar3"></i>
+                        </div>
+
+                        <small>
+                            Season
+                        </small>
+
+                    </div>
+
+                    <div class="col-4">
+
+                        <div class="mini-icon">
+                            <i class="bi bi-clock"></i>
+                        </div>
+
+                        <small>
+                            Time
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+```
+
+</section>
+
+<!-- =========================================================
+     PREDICTION FORM
+========================================================= -->
+
+<section id="prediction-form"
+         class="prediction-section py-5">
+
+```
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <div class="col-xl-10 col-lg-11">
+
+
+            <!-- SECTION TITLE -->
+
+            <div class="text-center mb-5">
+
+                <span class="section-badge">
+                    <i class="bi bi-calculator me-1"></i>
+                    PREDICTION FORM
+                </span>
+
+                <h2 class="fw-bold mt-3">
+                    Enter Rental Details
+                </h2>
+
+                <p class="text-muted mb-0">
+                    Provide the required information below
+                    to generate your bike rental prediction.
+                </p>
+
+            </div>
+
+
+            <!-- FORM CARD -->
+
+            <div class="prediction-card">
+
+                <div class="card-header-custom">
+
+                    <div>
+
+                        <h4 class="fw-bold mb-1">
+                            <i class="bi bi-sliders me-2"></i>
+                            Rental Information
+                        </h4>
+
+                        <p class="text-muted mb-0">
+                            Fill in all required fields.
+                        </p>
+
+                    </div>
+
+                    <div class="form-status">
+
+                        <i class="bi bi-check-circle-fill"></i>
+                        Ready
+
+                    </div>
+
+                </div>
+
+
+                <hr class="my-4">
+
+
+                <!-- DJANGO FORM -->
+
+                <form method="POST">
+
+                    {% csrf_token %}
+
+
+                    <div class="row g-4">
+
+                        {% for field in form %}
+
+                        <div class="col-md-6">
+
+                            <div class="form-group-custom">
+
+                                <label
+                                    for="{{ field.id_for_label }}"
+                                    class="form-label fw-semibold">
+
+                                    {{ field.label }}
+
+                                </label>
+
+
+                                <!-- FIELD -->
+
+                                {{ field }}
+
+
+                                <!-- HELP TEXT -->
+
+                                {% if field.help_text %}
+
+                                <div class="form-text mt-2">
+
+                                    <i class="bi bi-info-circle me-1"></i>
+
+                                    {{ field.help_text }}
+
+                                </div>
+
+                                {% endif %}
+
+
+                                <!-- FIELD ERRORS -->
+
+                                {% if field.errors %}
+
+                                <div class="alert alert-danger py-2 px-3 mt-2 mb-0">
+
+                                    {% for error in field.errors %}
+
+                                    <div class="small">
+
+                                        <i class="bi bi-exclamation-circle me-1"></i>
+
+                                        {{ error }}
+
+                                    </div>
+
+                                    {% endfor %}
+
+                                </div>
+
+                                {% endif %}
+
+                            </div>
+
+                        </div>
+
+                        {% endfor %}
+
+                    </div>
+
+
+                    <!-- NON FIELD ERRORS -->
+
+                    {% if form.non_field_errors %}
+
+                    <div class="alert alert-danger mt-4">
+
+                        <i class="bi bi-exclamation-triangle-fill me-2"></i>
+
+                        {% for error in form.non_field_errors %}
+
+                            {{ error }}
+
+                        {% endfor %}
+
+                    </div>
+
+                    {% endif %}
+
+
+                    <!-- SUBMIT -->
+
+                    <div class="text-center mt-5">
+
+                        <button
+                            type="submit"
+                            class="btn predict-btn btn-lg px-5">
+
+                            <i class="bi bi-magic me-2"></i>
+
+                            Predict Rental Demand
+
+                            <i class="bi bi-arrow-right ms-2"></i>
+
+                        </button>
+
+                        <p class="text-muted small mt-3 mb-0">
+
+                            <i class="bi bi-shield-check me-1"></i>
+
+                            Your information is processed by the
+                            trained prediction model.
+
+                        </p>
+
+                    </div>
+
+                </form>
+
+
+                <!-- =================================================
+                     PREDICTION RESULT
+                ================================================== -->
+
+                {% if prediction is not None %}
+
+                <div class="prediction-result mt-5">
+
+                    <div class="result-top">
+
+                        <div class="result-check">
+
+                            <i class="bi bi-check-lg"></i>
+
+                        </div>
+
+                        <div>
+
+                            <span class="result-label">
+                                PREDICTION COMPLETE
+                            </span>
+
+                            <h3 class="fw-bold mb-0">
+                                Estimated Rental Demand
+                            </h3>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="result-number">
+
+                        {{ prediction }}
+
+                    </div>
+
+
+                    <div class="result-unit">
+
+                        <i class="bi bi-bicycle me-1"></i>
+                        bikes
+
+                    </div>
+
+
+                    <div class="result-message mt-3">
+
+                        Based on the information you entered,
+                        the model estimates approximately
+
+                        <strong>{{ prediction }}</strong>
+
+                        bike rentals.
+
+                    </div>
+
+                </div>
+
+                {% endif %}
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+```
+
+</section>
+
+<!-- =========================================================
+     HOW IT WORKS
+========================================================= -->
+
+<section class="how-section py-5">
+
+```
+<div class="container">
+
+    <div class="text-center mb-5">
+
+        <span class="section-badge dark-badge">
+            HOW IT WORKS
+        </span>
+
+        <h2 class="fw-bold mt-3">
+            From Data to Prediction
+        </h2>
+
+        <p class="text-muted">
+            Three simple steps to estimate bike rental demand.
+        </p>
+
+    </div>
+
+
+    <div class="row g-4">
+
+
+        <!-- STEP 1 -->
+
+        <div class="col-md-4">
+
+            <div class="process-card h-100">
+
+                <div class="step-number">
+                    01
+                </div>
+
+                <div class="process-icon">
+
+                    <i class="bi bi-input-cursor-text"></i>
+
+                </div>
+
+                <h4 class="fw-bold">
+                    Enter Data
+                </h4>
+
+                <p class="text-muted mb-0">
+
+                    Provide information such as weather,
+                    season, time and other required values.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- STEP 2 -->
+
+        <div class="col-md-4">
+
+            <div class="process-card h-100">
+
+                <div class="step-number">
+                    02
+                </div>
+
+                <div class="process-icon">
+
+                    <i class="bi bi-cpu"></i>
+
+                </div>
+
+                <h4 class="fw-bold">
+                    Machine Learning
+                </h4>
+
+                <p class="text-muted mb-0">
+
+                    Your information is processed by the
+                    trained bike rental prediction model.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- STEP 3 -->
+
+        <div class="col-md-4">
+
+            <div class="process-card h-100">
+
+                <div class="step-number">
+                    03
+                </div>
+
+                <div class="process-icon">
+
+                    <i class="bi bi-bar-chart-line"></i>
+
+                </div>
+
+                <h4 class="fw-bold">
+                    Get Prediction
+                </h4>
+
+                <p class="text-muted mb-0">
+
+                    The model generates an estimated number
+                    of bike rentals based on your input.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+```
+
+</section>
+
+<!-- =========================================================
+     FEATURES
+========================================================= -->
+
+<section class="py-5 bg-white">
+
+```
+<div class="container">
+
+    <div class="row g-4 justify-content-center">
+
+
+        <div class="col-md-4">
+
+            <div class="feature-box">
+
+                <div class="feature-icon">
+                    <i class="bi bi-lightning-charge-fill"></i>
+                </div>
+
+                <div>
+
+                    <h6 class="fw-bold mb-1">
+                        Fast Prediction
+                    </h6>
+
+                    <p class="text-muted small mb-0">
+                        Get an estimated result after submitting
+                        the rental information.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-md-4">
+
+            <div class="feature-box">
+
+                <div class="feature-icon">
+                    <i class="bi bi-cpu-fill"></i>
+                </div>
+
+                <div>
+
+                    <h6 class="fw-bold mb-1">
+                        Machine Learning
+                    </h6>
+
+                    <p class="text-muted small mb-0">
+                        Predictions are generated using your
+                        trained machine learning model.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-md-4">
+
+            <div class="feature-box">
+
+                <div class="feature-icon">
+                    <i class="bi bi-phone-fill"></i>
+                </div>
+
+                <div>
+
+                    <h6 class="fw-bold mb-1">
+                        Responsive Design
+                    </h6>
+
+                    <p class="text-muted small mb-0">
+                        The prediction page works across
+                        desktop, tablet and mobile screens.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
+```
+
+</section>
+
+<!-- =========================================================
+     BACK HOME
+========================================================= -->
+
+<section class="back-home-section py-5">
+
+```
+<div class="container">
+
+    <div class="back-home-card text-center">
+
+        <div class="home-icon">
+
+            <i class="bi bi-bicycle"></i>
+
+        </div>
+
+        <h3 class="fw-bold mt-3">
+            Want to explore the project?
+        </h3>
+
+        <p class="text-muted">
+            Return to the home page to learn more about
+            the bike rental prediction system.
+        </p>
+
+        <a
+            href="{% url 'home' %}"
+            class="btn btn-dark rounded-pill px-4">
+
+            <i class="bi bi-house-door me-2"></i>
+            Back to Home
+
+        </a>
+
+    </div>
+
+</div>
+```
+
+</section>
+
+{% endblock %}
+
+{% block extra_css %}
+
+<style>
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+.prediction-hero {
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 80% 20%,
+            rgba(255,255,255,0.18),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #0d6efd 0%,
+            #084298 100%
+        );
+
+    color: white;
+
+}
+
+
+.prediction-hero::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 350px;
+
+    height: 350px;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.05);
+
+    top: -150px;
+
+    left: -100px;
+
+}
+
+
+.prediction-hero h1 {
+
+    line-height: 1.15;
+
+}
+
+
+.prediction-hero h1 span {
+
+    color: #dbeafe;
+
+}
+
+
+.hero-description {
+
+    font-size: 1.1rem;
+
+    line-height: 1.8;
+
+    color: rgba(255,255,255,0.88);
+
+    max-width: 700px;
+
+}
+
+
+.hero-badge {
+
+    display: inline-block;
+
+    padding: 8px 16px;
+
+    border: 1px solid rgba(255,255,255,0.35);
+
+    border-radius: 50px;
+
+    background: rgba(255,255,255,0.10);
+
+    font-size: 0.8rem;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+}
+
+
+/* =========================================================
+   HERO BIKE CARD
+========================================================= */
+
+.hero-bike-card {
+
+    position: relative;
+
+    overflow: hidden;
+
+    text-align: center;
+
+    padding: 45px 30px;
+
+    border-radius: 30px;
+
+    background: rgba(255,255,255,0.12);
+
+    border: 1px solid rgba(255,255,255,0.2);
+
+    backdrop-filter: blur(10px);
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,0.15);
+
+}
+
+
+.hero-bike-card p {
+
+    color: rgba(255,255,255,0.8);
+
+}
+
+
+.bike-icon {
+
+    width: 105px;
+
+    height: 105px;
+
+    margin: auto;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.16);
+
+    font-size: 55px;
+
+}
+
+
+.mini-icon {
+
+    width: 45px;
+
+    height: 45px;
+
+    margin: 0 auto 8px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background: rgba(255,255,255,0.13);
+
+    font-size: 20px;
+
+}
+
+
+.hero-bike-card small {
+
+    color: rgba(255,255,255,0.8);
+
+}
+
+
+.floating-circle {
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.05);
+
+}
+
+
+.circle-one {
+
+    width: 130px;
+
+    height: 130px;
+
+    top: -60px;
+
+    right: -40px;
+
+}
+
+
+.circle-two {
+
+    width: 90px;
+
+    height: 90px;
+
+    bottom: -40px;
+
+    left: -20px;
+
+}
+
+
+/* =========================================================
+   PREDICTION SECTION
+========================================================= */
+
+.prediction-section {
+
+    background: #f5f8fc;
+
+}
+
+
+.section-badge {
+
+    display: inline-block;
+
+    padding: 7px 15px;
+
+    border-radius: 50px;
+
+    background: #e7f0ff;
+
+    color: #0d6efd;
+
+    font-size: 0.78rem;
+
+    font-weight: 700;
+
+    letter-spacing: 0.7px;
+
+}
+
+
+.dark-badge {
+
+    background: #212529;
+
+    color: white;
+
+}
+
+
+/* =========================================================
+   PREDICTION CARD
+========================================================= */
+
+.prediction-card {
+
+    background: white;
+
+    border-radius: 25px;
+
+    padding: 35px;
+
+    border: 1px solid #e9ecef;
+
+    box-shadow:
+        0 15px 45px rgba(30, 60, 90, 0.10);
+
+}
+
+
+.card-header-custom {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+}
+
+
+.card-header-custom h4 {
+
+    color: #212529;
+
+}
+
+
+.form-status {
+
+    padding: 7px 13px;
+
+    border-radius: 50px;
+
+    background: #e8f5e9;
+
+    color: #198754;
+
+    font-size: 0.8rem;
+
+    font-weight: 600;
+
+}
+
+
+.form-status i {
+
+    margin-right: 5px;
+
+}
+
+
+/* =========================================================
+   FORM FIELDS
+========================================================= */
+
+.form-group-custom {
+
+    position: relative;
+
+}
+
+
+.form-label {
+
+    color: #343a40;
+
+    margin-bottom: 9px;
+
+}
+
+
+.prediction-card input,
+.prediction-card select,
+.prediction-card textarea {
+
+    width: 100%;
+
+    min-height: 50px;
+
+    padding: 12px 15px;
+
+    border: 1px solid #dce1e7;
+
+    border-radius: 12px;
+
+    background: #fbfcfe;
+
+    color: #212529;
+
+    font-size: 0.95rem;
+
+    transition: all 0.25s ease;
+
+}
+
+
+.prediction-card input:hover,
+.prediction-card select:hover,
+.prediction-card textarea:hover {
+
+    border-color: #9ec5fe;
+
+}
+
+
+.prediction-card input:focus,
+.prediction-card select:focus,
+.prediction-card textarea:focus {
+
+    outline: none;
+
+    border-color: #0d6efd;
+
+    background: white;
+
+    box-shadow:
+        0 0 0 4px rgba(13,110,253,0.10);
+
+}
+
+
+.prediction-card input::placeholder {
+
+    color: #adb5bd;
+
+}
+
+
+.form-text {
+
+    font-size: 0.78rem;
+
+    color: #6c757d;
+
+}
+
+
+/* =========================================================
+   PREDICTION BUTTON
+========================================================= */
+
+.predict-btn {
+
+    border: none;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0d6efd,
+            #084298
+        );
+
+    border-radius: 14px;
+
+    font-weight: 600;
+
+    box-shadow:
+        0 8px 20px rgba(13,110,253,0.25);
+
+    transition: all 0.3s ease;
+
+}
+
+
+.predict-btn:hover {
+
+    color: white;
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 28px rgba(13,110,253,0.35);
+
+}
+
+
+/* =========================================================
+   RESULT
+========================================================= */
+
+.prediction-result {
+
+    padding: 30px;
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ecfdf3,
+            #dff7e8
+        );
+
+    border: 1px solid #b7dfc5;
+
+    text-align: center;
+
+}
+
+
+.result-top {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 15px;
+
+}
+
+
+.result-check {
+
+    width: 55px;
+
+    height: 55px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #198754;
+
+    color: white;
+
+    font-size: 28px;
+
+}
+
+
+.result-label {
+
+    display: block;
+
+    color: #198754;
+
+    font-size: 0.75rem;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+}
+
+
+.result-number {
+
+    margin-top: 25px;
+
+    font-size: clamp(3rem, 7vw, 5rem);
+
+    line-height: 1;
+
+    font-weight: 800;
+
+    color: #198754;
+
+}
+
+
+.result-unit {
+
+    margin-top: 10px;
+
+    color: #198754;
+
+    font-size: 1.1rem;
+
+    font-weight: 600;
+
+}
+
+
+.result-message {
+
+    max-width: 600px;
+
+    margin-left: auto;
+
+    margin-right: auto;
+
+    color: #5a6b60;
+
+}
+
+
+/* =========================================================
+   HOW IT WORKS
+========================================================= */
+
+.how-section {
+
+    background: #ffffff;
+
+}
+
+
+.process-card {
+
+    position: relative;
+
+    overflow: hidden;
+
+    padding: 40px 30px;
+
+    text-align: center;
+
+    background: white;
+
+    border: 1px solid #e9ecef;
+
+    border-radius: 22px;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,0.06);
+
+    transition: all 0.3s ease;
+
+}
+
+
+.process-card:hover {
+
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 18px 35px rgba(0,0,0,0.10);
+
+}
+
+
+.step-number {
+
+    position: absolute;
+
+    top: 15px;
+
+    right: 20px;
+
+    font-size: 0.8rem;
+
+    font-weight: 800;
+
+    color: #adb5bd;
+
+}
+
+
+.process-icon {
+
+    width: 75px;
+
+    height: 75px;
+
+    margin: 0 auto 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 20px;
+
+    background: #e7f0ff;
+
+    color: #0d6efd;
+
+    font-size: 32px;
+
+}
+
+
+.process-card h4 {
+
+    margin-bottom: 12px;
+
+}
+
+
+/* =========================================================
+   FEATURES
+========================================================= */
+
+.feature-box {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    padding: 22px;
+
+    border: 1px solid #e9ecef;
+
+    border-radius: 18px;
+
+    background: white;
+
+    height: 100%;
+
+    transition: all 0.3s ease;
+
+}
+
+
+.feature-box:hover {
+
+    border-color: #b6d4fe;
+
+    transform: translateY(-3px);
+
+}
+
+
+.feature-icon {
+
+    flex-shrink: 0;
+
+    width: 50px;
+
+    height: 50px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 14px;
+
+    background: #e7f0ff;
+
+    color: #0d6efd;
+
+    font-size: 22px;
+
+}
+
+
+/* =========================================================
+   BACK HOME
+========================================================= */
+
+.back-home-section {
+
+    background: #f5f8fc;
+
+}
+
+
+.back-home-card {
+
+    padding: 45px 25px;
+
+    border-radius: 25px;
+
+    background: white;
+
+    border: 1px solid #e9ecef;
+
+    box-shadow:
+        0 8px 30px rgba(0,0,0,0.06);
+
+}
+
+
+.home-icon {
+
+    width: 70px;
+
+    height: 70px;
+
+    margin: auto;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #212529;
+
+    color: white;
+
+    font-size: 30px;
+
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .prediction-hero {
+
+        text-align: center;
+
+    }
+
+
+    .prediction-hero h1 {
+
+        font-size: 2.35rem;
+
+    }
+
+
+    .hero-description {
+
+        font-size: 1rem;
+
+    }
+
+
+    .hero-bike-card {
+
+        padding: 35px 20px;
+
+    }
+
+
+    .prediction-card {
+
+        padding: 25px 18px;
+
+        border-radius: 20px;
+
+    }
+
+
+    .card-header-custom {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+
+    }
+
+
+    .form-status {
+
+        align-self: flex-start;
+
+    }
+
+
+    .result-top {
+
+        flex-direction: column;
+
+    }
+
+
+    .prediction-result {
+
+        padding: 25px 15px;
+
+    }
+
+
+    .process-card {
+
+        padding: 35px 25px;
+
+    }
+
+}
+
+
+@media (max-width: 576px) {
+
+    .prediction-hero h1 {
+
+        font-size: 2rem;
+
+    }
+
+
+    .hero-badge {
+
+        font-size: 0.7rem;
+
+    }
+
+
+    .prediction-card {
+
+        padding: 20px 15px;
+
+    }
+
+
+    .predict-btn {
+
+        width: 100%;
+
+    }
+
+
+    .result-number {
+
+        font-size: 3.5rem;
+
+    }
+
+}
+
+</style>
+
+{% endblock %}

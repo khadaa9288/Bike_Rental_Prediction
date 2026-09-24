@@ -1,5 +1,7 @@
 from django.db import models
 
+from django.contrib.auth.models import User
+
 
 class RentalPrediction(models.Model):
 
@@ -42,3 +44,19 @@ class RentalPrediction(models.Model):
 
     def __str__(self):
         return f"{self.bike_type} - ₹{self.predicted_price_per_day}/day"
+
+
+class PredictionHistory(models.Model):
+
+    user = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        related_name="predictions"
+    )
+
+    prediction = models.FloatField()
+
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.user.username} - {self.prediction}"

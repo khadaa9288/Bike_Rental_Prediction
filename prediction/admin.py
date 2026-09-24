@@ -1,6 +1,9 @@
 from django.contrib import admin
 from .models import RentalPrediction
 
+from .models import PredictionHistory
+
+admin.site.register(PredictionHistory)
 
 @admin.register(RentalPrediction)
 class RentalPredictionAdmin(admin.ModelAdmin):

@@ -3,4 +3,11 @@ from . import views
 
 urlpatterns = [
     path("", views.predict, name="predict"),
+
+     path(
+        "admin-dashboard/",
+        views.admin_dashboard,
+        name="admin_dashboard"
+    ),
+
 ]
