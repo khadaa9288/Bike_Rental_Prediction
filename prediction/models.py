@@ -5,6 +5,15 @@ from django.contrib.auth.models import User
 
 class RentalPrediction(models.Model):
 
+    # User who made the prediction
+    user = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        related_name="rental_predictions",
+        null=True,
+        blank=True
+    )
+
     # Customer information
     customer_age = models.PositiveIntegerField()
     license_years = models.PositiveIntegerField()
@@ -44,7 +53,6 @@ class RentalPrediction(models.Model):
 
     def __str__(self):
         return f"{self.bike_type} - ₹{self.predicted_price_per_day}/day"
-
 
 class PredictionHistory(models.Model):
 

@@ -5,8 +5,6 @@ from django.views.generic import TemplateView
 urlpatterns = [
     path("admin/", admin.site.urls),
 
-    path("", include("prediction.urls")),
-
     path(
         "",
         TemplateView.as_view(template_name="home.html"),
@@ -16,5 +14,4 @@ urlpatterns = [
     path("accounts/", include("accounts.urls")),
 
     path("prediction/", include("prediction.urls")),
-    
 ]

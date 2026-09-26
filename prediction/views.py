@@ -1,8 +1,5 @@
 from django.shortcuts import render, redirect
 from django.conf import settings
-
-from django.contrib.auth import authenticate, login, logout
-from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
 import pandas as pd
@@ -10,7 +7,7 @@ import joblib
 import os
 
 from .forms import PredictionForm
-from .models import PredictionHistory
+from .models import RentalPrediction
 
 
 MODEL_PATH = os.path.join(
@@ -29,64 +26,10 @@ def home(request):
 
 
 # =========================
-# LOGIN
-# =========================
-
-def user_login(request):
-
-    if request.user.is_authenticated:
-
-        if request.user.is_staff or request.user.is_superuser:
-            return redirect("/admin/")
-
-        return redirect("home")
-
-    if request.method == "POST":
-
-        username = request.POST.get("username")
-        password = request.POST.get("password")
-
-        user = authenticate(
-            request,
-            username=username,
-            password=password
-        )
-
-        if user is not None:
-
-            login(request, user)
-
-            # Admin / Superuser
-            if user.is_staff or user.is_superuser:
-                return redirect("/admin/")
-
-            # Normal customer
-            return redirect("home")
-
-        messages.error(
-            request,
-            "Invalid username or password."
-        )
-
-    return render(request, "login.html")
-
-
-# =========================
-# LOGOUT
-# =========================
-
-def user_logout(request):
-
-    logout(request)
-
-    return redirect("home")
-
-
-# =========================
 # BIKE RENTAL PREDICTION
 # =========================
 
-@login_required(login_url="/login/")
+@login_required(login_url="/accounts/login/")
 def predict(request):
 
     prediction = None
@@ -97,8 +40,10 @@ def predict(request):
 
         if form.is_valid():
 
+            # Load trained machine learning model
             model = joblib.load(MODEL_PATH)
 
+            # Prepare input data
             input_data = pd.DataFrame([{
                 "Customer_Age": form.cleaned_data["customer_age"],
                 "License_Years": form.cleaned_data["license_years"],
@@ -118,17 +63,42 @@ def predict(request):
                 ],
             }])
 
+            # Make prediction
             result = model.predict(input_data)[0]
 
+            # Prevent negative prediction
             prediction = round(
                 max(0, float(result)),
                 2
             )
 
-            # Save prediction for logged-in user
-            PredictionHistory.objects.create(
+            # Calculate total rental price
+            rental_days = form.cleaned_data["rental_days"]
+
+            total_rental_price = round(
+                prediction * rental_days,
+                2
+            )
+
+            # Save complete prediction
+            RentalPrediction.objects.create(
                 user=request.user,
-                prediction=prediction
+                    
+                customer_age=form.cleaned_data["customer_age"],
+                license_years=form.cleaned_data["license_years"],
+                rental_days=form.cleaned_data["rental_days"],
+                distance_km=form.cleaned_data["distance_km"],
+                engine_cc=form.cleaned_data["engine_cc"],
+                mileage_kmpl=form.cleaned_data["mileage_kmpl"],
+                bike_age_years=form.cleaned_data["bike_age_years"],
+                previous_rentals=form.cleaned_data["previous_rentals"],
+                customer_rating=form.cleaned_data["customer_rating"],
+                season=form.cleaned_data["season"],
+                weather_condition=form.cleaned_data["weather_condition"],
+                location=form.cleaned_data["location"],
+                bike_type=form.cleaned_data["bike_type"],
+                predicted_price_per_day=prediction,
+                total_rental_price=total_rental_price,
             )
 
     else:
@@ -139,47 +109,19 @@ def predict(request):
         request,
         "predict.html",
         {
-            "form": form,
-            "prediction": prediction,
+        "form": form,
+        "prediction": prediction,
+        "total_rental_price": total_rental_price
+        if prediction is not None else None,
         }
     )
 
-def login_view(request):
 
-    if request.method == "POST":
+# =========================
+# ADMIN DASHBOARD
+# =========================
 
-        username = request.POST.get("username")
-        password = request.POST.get("password")
-
-        user = authenticate(
-            request,
-            username=username,
-            password=password
-        )
-
-        if user is not None:
-
-            login(request, user)
-
-            # Admin / Superuser
-            if user.is_superuser:
-                return redirect("admin_dashboard")
-
-            # Normal User
-            return redirect("home")
-
-        else:
-            return render(
-                request,
-                "login.html",
-                {
-                    "error": "Invalid username or password."
-                }
-            )
-
-    return render(request, "login.html")
-
-@login_required
+@login_required(login_url="/accounts/login/")
 def admin_dashboard(request):
 
     if not request.user.is_superuser:
