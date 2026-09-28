@@ -8,22 +8,34 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1">
 
-    <title>Register - Bike Rental Prediction</title>
+    <meta name="description"
+          content="Create an account for the Bike Rental Prediction System">
+
+    <title>Create Account - Bike Rental Prediction</title>
 
 
-    <!-- Bootstrap 5 -->
+    <!-- =========================================================
+         BOOTSTRAP 5
+    ========================================================== -->
+
     <link
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
         rel="stylesheet">
 
 
-    <!-- Bootstrap Icons -->
+    <!-- =========================================================
+         BOOTSTRAP ICONS
+    ========================================================== -->
+
     <link
         rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 
 
-    <!-- Google Font -->
+    <!-- =========================================================
+         GOOGLE FONT
+    ========================================================== -->
+
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
@@ -31,41 +43,44 @@
 
     <style>
 
+        /* =========================================================
+           GLOBAL
+        ========================================================== */
+
         * {
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
 
         body {
             margin: 0;
             min-height: 100vh;
 
-            font-family: "Inter", sans-serif;
+            font-family: "Inter", Arial, sans-serif;
+
+            color: #ffffff;
 
             background:
                 radial-gradient(
-                    circle at 10% 15%,
-                    rgba(13, 110, 253, 0.15),
-                    transparent 30%
+                    circle at 10% 10%,
+                    rgba(255, 255, 255, 0.06),
+                    transparent 28%
                 ),
-
                 radial-gradient(
-                    circle at 90% 85%,
-                    rgba(25, 135, 84, 0.12),
+                    circle at 90% 90%,
+                    rgba(255, 255, 255, 0.04),
                     transparent 30%
                 ),
-
-                linear-gradient(
-                    135deg,
-                    #f4f8ff,
-                    #eef4fb
-                );
+                #050505;
         }
 
 
-        /* =========================
-           MAIN WRAPPER
-        ========================== */
+        /* =========================================================
+           PAGE WRAPPER
+        ========================================================== */
 
         .register-wrapper {
             min-height: 100vh;
@@ -73,85 +88,97 @@
             display: flex;
 
             align-items: center;
+
             justify-content: center;
 
-            padding: 30px 15px;
+            padding: 35px 15px;
         }
 
 
-        /* =========================
+        /* =========================================================
            MAIN CARD
-        ========================== */
+        ========================================================== */
 
         .register-card {
             width: 100%;
-            max-width: 1050px;
+
+            max-width: 1100px;
 
             overflow: hidden;
 
-            border: none;
+            border: 1px solid #252525;
 
             border-radius: 28px;
 
-            background: #ffffff;
+            background: #0d0d0d;
 
             box-shadow:
-                0 25px 70px
-                rgba(30, 60, 90, 0.15);
+                0 30px 80px
+                rgba(0, 0, 0, 0.75);
         }
 
 
-        /* =========================
-           LEFT PANEL
-        ========================== */
+        /* =========================================================
+           LEFT INFORMATION PANEL
+        ========================================================== */
 
         .register-info {
             position: relative;
 
-            min-height: 700px;
+            min-height: 720px;
 
-            padding: 55px 45px;
+            padding: 55px 48px;
 
             overflow: hidden;
-
-            color: white;
-
-            background:
-                radial-gradient(
-                    circle at 80% 15%,
-                    rgba(255,255,255,0.20),
-                    transparent 25%
-                ),
-
-                linear-gradient(
-                    145deg,
-                    #0d6efd,
-                    #084298
-                );
 
             display: flex;
 
             flex-direction: column;
 
             justify-content: center;
+
+            color: #ffffff;
+
+            background:
+                radial-gradient(
+                    circle at 85% 15%,
+                    rgba(255, 255, 255, 0.10),
+                    transparent 25%
+                ),
+                radial-gradient(
+                    circle at 15% 90%,
+                    rgba(255, 255, 255, 0.05),
+                    transparent 25%
+                ),
+                linear-gradient(
+                    145deg,
+                    #151515,
+                    #050505
+                );
+
+            border-right: 1px solid #252525;
         }
 
+
+        /* Decorative circles */
 
         .register-info::before {
             content: "";
 
             position: absolute;
 
-            width: 280px;
-            height: 280px;
+            width: 300px;
+
+            height: 300px;
 
             border-radius: 50%;
 
             background:
-                rgba(255,255,255,0.06);
+                rgba(255, 255, 255, 0.025);
 
-            top: -100px;
-            right: -90px;
+            top: -120px;
+
+            right: -100px;
         }
 
 
@@ -160,81 +187,96 @@
 
             position: absolute;
 
-            width: 200px;
-            height: 200px;
+            width: 220px;
+
+            height: 220px;
 
             border-radius: 50%;
 
             background:
-                rgba(255,255,255,0.05);
+                rgba(255, 255, 255, 0.025);
 
-            bottom: -90px;
-            left: -70px;
+            bottom: -100px;
+
+            left: -80px;
         }
 
 
-        /* =========================
+        /* =========================================================
            BRAND ICON
-        ========================== */
+        ========================================================== */
 
         .brand-icon {
             position: relative;
 
             z-index: 2;
 
-            width: 85px;
-            height: 85px;
+            width: 88px;
+
+            height: 88px;
 
             display: flex;
 
             align-items: center;
+
             justify-content: center;
 
             border-radius: 24px;
 
-            background:
-                rgba(255,255,255,0.15);
+            background: #ffffff;
 
-            border:
-                1px solid
-                rgba(255,255,255,0.25);
-
-            backdrop-filter: blur(10px);
+            color: #000000;
 
             font-size: 43px;
 
             margin-bottom: 30px;
+
+            box-shadow:
+                0 15px 35px
+                rgba(0, 0, 0, 0.45);
         }
 
+
+        /* =========================================================
+           LEFT HEADING
+        ========================================================== */
 
         .register-info h1 {
             position: relative;
 
             z-index: 2;
 
-            font-size: 2.6rem;
+            font-size: 2.65rem;
 
             font-weight: 800;
 
             line-height: 1.2;
+
+            margin-bottom: 18px;
         }
 
 
-        .register-info p {
+        .register-info h1 span {
+            color: #bdbdbd;
+        }
+
+
+        .register-info-description {
             position: relative;
 
             z-index: 2;
 
-            color:
-                rgba(255,255,255,0.85);
+            color: #999999;
 
             line-height: 1.8;
+
+            max-width: 480px;
         }
 
 
-        /* =========================
+        /* =========================================================
            FEATURES
-        ========================== */
+        ========================================================== */
 
         .register-feature {
             position: relative;
@@ -247,25 +289,30 @@
 
             gap: 14px;
 
-            margin-top: 20px;
+            margin-top: 21px;
         }
 
 
         .feature-icon {
             flex-shrink: 0;
 
-            width: 45px;
-            height: 45px;
+            width: 46px;
+
+            height: 46px;
 
             display: flex;
 
             align-items: center;
+
             justify-content: center;
 
             border-radius: 13px;
 
-            background:
-                rgba(255,255,255,0.13);
+            background: #171717;
+
+            border: 1px solid #303030;
+
+            color: #ffffff;
 
             font-size: 19px;
         }
@@ -274,23 +321,24 @@
         .register-feature span {
             font-size: 0.92rem;
 
-            color:
-                rgba(255,255,255,0.90);
+            color: #cccccc;
         }
 
 
-        /* =========================
+        /* =========================================================
            RIGHT FORM PANEL
-        ========================== */
+        ========================================================== */
 
         .register-form-panel {
-            min-height: 700px;
+            min-height: 720px;
 
             padding: 50px;
 
             display: flex;
 
             align-items: center;
+
+            background: #0b0b0b;
         }
 
 
@@ -303,9 +351,9 @@
         }
 
 
-        /* =========================
+        /* =========================================================
            BADGE
-        ========================== */
+        ========================================================== */
 
         .welcome-badge {
             display: inline-flex;
@@ -314,56 +362,92 @@
 
             gap: 7px;
 
-            padding:
-                7px 13px;
+            padding: 7px 13px;
 
             border-radius: 50px;
 
-            background:
-                #e7f0ff;
+            background: #171717;
 
-            color:
-                #0d6efd;
+            border: 1px solid #303030;
 
-            font-size: 0.75rem;
+            color: #ffffff;
+
+            font-size: 0.72rem;
 
             font-weight: 700;
 
-            letter-spacing: 0.5px;
+            letter-spacing: 0.7px;
         }
 
 
-        .register-form-content h2 {
-            font-weight: 800;
+        /* =========================================================
+           FORM HEADING
+        ========================================================== */
 
-            color: #212529;
+        .register-form-content h2 {
+            color: #ffffff;
+
+            font-size: 2rem;
+
+            font-weight: 800;
         }
 
 
         .subtitle {
-            color: #6c757d;
+            color: #777777;
 
             line-height: 1.7;
         }
 
 
-        /* =========================
-           ALERT
-        ========================== */
+        /* =========================================================
+           ALERTS
+        ========================================================== */
 
         .alert {
-            border: none;
+            border-radius: 13px;
 
-            border-radius: 12px;
+            border: 1px solid #303030;
+
+            background: #151515;
+
+            color: #dddddd;
         }
 
 
-        /* =========================
-           FORM
-        ========================== */
+        .alert-success {
+            border-color: #285b3b;
+
+            color: #9be0b1;
+
+            background: #0e1a13;
+        }
+
+
+        .alert-danger {
+            border-color: #683039;
+
+            color: #ff9ca7;
+
+            background: #1b0d10;
+        }
+
+
+        .alert-warning {
+            border-color: #66582d;
+
+            color: #e8d889;
+
+            background: #191707;
+        }
+
+
+        /* =========================================================
+           FORM LABELS
+        ========================================================== */
 
         .form-label {
-            color: #343a40;
+            color: #dddddd;
 
             font-weight: 600;
 
@@ -371,134 +455,157 @@
         }
 
 
+        /* =========================================================
+           INPUT GROUP
+        ========================================================== */
+
         .input-group {
             border-radius: 13px;
         }
 
 
         .input-group-text {
-            width: 50px;
+            width: 52px;
+
+            min-height: 53px;
 
             justify-content: center;
 
-            background: #f8f9fa;
+            background: #151515;
 
-            border:
-                1px solid
-                #dee2e6;
+            border: 1px solid #303030;
 
-            color: #0d6efd;
+            color: #ffffff;
 
-            border-radius:
-                13px 0 0 13px;
+            border-radius: 13px 0 0 13px;
         }
 
 
         .form-control {
-            min-height: 52px;
+            min-height: 53px;
 
-            border:
-                1px solid
-                #dee2e6;
+            background: #111111;
 
-            font-size: 0.95rem;
+            border: 1px solid #303030;
+
+            color: #ffffff;
+
+            font-size: 0.94rem;
+
+            border-radius: 0 13px 13px 0;
         }
 
 
-        .input-group .form-control {
-            border-radius:
-                0 13px 13px 0;
+        .form-control::placeholder {
+            color: #5f5f5f;
         }
 
 
         .form-control:focus {
-            border-color:
-                #0d6efd;
+            background: #111111;
+
+            color: #ffffff;
+
+            border-color: #777777;
 
             box-shadow:
                 0 0 0 4px
-                rgba(13,110,253,0.10);
+                rgba(255, 255, 255, 0.06);
         }
 
 
-        /* =========================
+        /* =========================================================
            PASSWORD TOGGLE
-        ========================== */
+        ========================================================== */
 
         .password-toggle {
-            min-height: 52px;
+            min-height: 53px;
 
-            border:
-                1px solid
-                #dee2e6;
+            border: 1px solid #303030;
 
             border-left: none;
 
-            background: white;
+            background: #111111;
 
-            color: #6c757d;
+            color: #777777;
 
-            border-radius:
-                0 13px 13px 0;
+            border-radius: 0 13px 13px 0;
         }
 
 
         .password-toggle:hover {
-            background: #f8f9fa;
+            background: #181818;
 
-            color: #0d6efd;
+            color: #ffffff;
         }
 
 
-        /* =========================
+        /* =========================================================
+           PASSWORD HELP
+        ========================================================== */
+
+        .password-help {
+            color: #666666;
+
+            font-size: 0.75rem;
+
+            margin-top: 7px;
+        }
+
+
+        /* =========================================================
            REGISTER BUTTON
-        ========================== */
+        ========================================================== */
 
         .register-btn {
-            min-height: 54px;
+            min-height: 55px;
 
-            border: none;
+            border: 1px solid #ffffff;
 
             border-radius: 13px;
 
             font-weight: 700;
 
-            color: white;
+            color: #000000;
 
-            background:
-                linear-gradient(
-                    135deg,
-                    #0d6efd,
-                    #084298
-                );
-
-            box-shadow:
-                0 8px 20px
-                rgba(13,110,253,0.25);
+            background: #ffffff;
 
             transition:
-                all 0.3s ease;
+                all 0.25s ease;
         }
 
 
         .register-btn:hover {
-            color: white;
+            color: #ffffff;
 
-            transform:
-                translateY(-2px);
+            background: #171717;
+
+            border-color: #ffffff;
+
+            transform: translateY(-2px);
 
             box-shadow:
-                0 12px 28px
-                rgba(13,110,253,0.35);
+                0 12px 30px
+                rgba(0, 0, 0, 0.5);
         }
 
 
-        /* =========================
+        .register-btn:active {
+            transform: translateY(0);
+        }
+
+
+        /* =========================================================
            LOGIN LINK
-        ========================== */
+        ========================================================== */
+
+        .login-text {
+            color: #777777;
+        }
+
 
         .login-link {
-            color: #0d6efd;
+            color: #ffffff;
 
             font-weight: 700;
 
@@ -507,13 +614,15 @@
 
 
         .login-link:hover {
+            color: #cccccc;
+
             text-decoration: underline;
         }
 
 
-        /* =========================
+        /* =========================================================
            SECURITY NOTE
-        ========================== */
+        ========================================================== */
 
         .security-note {
             display: flex;
@@ -524,67 +633,98 @@
 
             gap: 7px;
 
-            color: #6c757d;
+            color: #555555;
 
-            font-size: 0.78rem;
+            font-size: 0.76rem;
         }
 
 
         .security-note i {
-            color: #198754;
+            color: #888888;
         }
 
 
-        /* =========================
-           PASSWORD REQUIREMENTS
-        ========================== */
+        /* =========================================================
+           PASSWORD STRENGTH
+        ========================================================== */
 
-        .password-help {
-            color: #6c757d;
+        .password-strength {
+            display: none;
 
-            font-size: 0.75rem;
-
-            margin-top: 7px;
+            margin-top: 10px;
         }
 
 
-        /* =========================
+        .strength-bar {
+            height: 4px;
+
+            border-radius: 10px;
+
+            background: #252525;
+
+            overflow: hidden;
+        }
+
+
+        .strength-progress {
+            height: 100%;
+
+            width: 0%;
+
+            border-radius: 10px;
+
+            transition: width 0.3s ease;
+        }
+
+
+        .strength-text {
+            margin-top: 5px;
+
+            font-size: 0.72rem;
+
+            color: #666666;
+        }
+
+
+        /* =========================================================
            RESPONSIVE
-        ========================== */
+        ========================================================== */
 
         @media (max-width: 991px) {
 
             .register-info {
                 min-height: auto;
 
-                padding:
-                    40px 35px;
+                padding: 45px 35px;
 
                 text-align: center;
 
                 align-items: center;
+
+                border-right: none;
+
+                border-bottom: 1px solid #252525;
             }
 
 
-            .register-info h1 {
-                font-size: 2.2rem;
+            .register-info-description {
+                max-width: 650px;
             }
 
 
             .register-feature {
-                text-align: left;
-
                 width: 100%;
 
-                max-width: 400px;
+                max-width: 450px;
+
+                text-align: left;
             }
 
 
             .register-form-panel {
                 min-height: auto;
 
-                padding:
-                    45px 30px;
+                padding: 45px 35px;
             }
 
         }
@@ -603,29 +743,33 @@
 
 
             .register-info {
-                padding:
-                    35px 25px;
+                padding: 35px 22px;
             }
 
 
             .brand-icon {
-                width: 70px;
-                height: 70px;
+                width: 72px;
 
-                font-size: 34px;
+                height: 72px;
+
+                font-size: 35px;
 
                 border-radius: 20px;
             }
 
 
             .register-info h1 {
-                font-size: 1.9rem;
+                font-size: 2rem;
             }
 
 
             .register-form-panel {
-                padding:
-                    35px 20px;
+                padding: 35px 20px;
+            }
+
+
+            .register-form-content h2 {
+                font-size: 1.7rem;
             }
 
         }
@@ -638,6 +782,10 @@
 <body>
 
 
+<!-- =========================================================
+     REGISTER WRAPPER
+========================================================== -->
+
 <div class="register-wrapper">
 
 
@@ -647,15 +795,17 @@
         <div class="row g-0">
 
 
-            <!-- =================================
-                 LEFT INFORMATION PANEL
-            ================================== -->
+            <!-- =================================================
+                 LEFT PANEL
+            ================================================== -->
 
             <div class="col-lg-6">
 
 
                 <div class="register-info">
 
+
+                    <!-- BRAND -->
 
                     <div class="brand-icon">
 
@@ -664,23 +814,33 @@
                     </div>
 
 
+                    <!-- HEADING -->
+
                     <h1>
 
-                        Join Bike Rental
-                        Prediction
+                        Join the
+
+                        <span>
+                            Bike Rental
+                        </span>
+
+                        Prediction System
 
                     </h1>
 
 
-                    <p class="mt-3 mb-4">
+                    <p class="register-info-description">
 
                         Create your account and access
                         the Bike Rental Prediction system.
-                        Use machine learning to estimate
-                        bike rental demand quickly and easily.
+                        Save your prediction history and
+                        use the machine learning model
+                        whenever you need it.
 
                     </p>
 
+
+                    <!-- FEATURE 1 -->
 
                     <div class="register-feature">
 
@@ -692,41 +852,64 @@
 
                         <span>
 
-                            Machine learning powered prediction
+                            Machine learning powered predictions
 
                         </span>
 
                     </div>
 
 
+                    <!-- FEATURE 2 -->
+
                     <div class="register-feature">
 
                         <div class="feature-icon">
 
-                            <i class="bi bi-graph-up-arrow"></i>
+                            <i class="bi bi-clock-history"></i>
 
                         </div>
 
                         <span>
 
-                            Track your prediction history
+                            Keep track of your prediction history
 
                         </span>
 
                     </div>
 
 
+                    <!-- FEATURE 3 -->
+
                     <div class="register-feature">
 
                         <div class="feature-icon">
 
-                            <i class="bi bi-shield-check"></i>
+                            <i class="bi bi-person-check"></i>
 
                         </div>
 
                         <span>
 
-                            Secure Django user authentication
+                            Personal user profile and account
+
+                        </span>
+
+                    </div>
+
+
+                    <!-- FEATURE 4 -->
+
+                    <div class="register-feature">
+
+                        <div class="feature-icon">
+
+                            <i class="bi bi-shield-lock"></i>
+
+                        </div>
+
+                        <span>
+
+                            Secure Django authentication
 
                         </span>
 
@@ -740,9 +923,9 @@
 
 
 
-            <!-- =================================
-                 RIGHT REGISTRATION FORM
-            ================================== -->
+            <!-- =================================================
+                 RIGHT FORM PANEL
+            ================================================== -->
 
             <div class="col-lg-6">
 
@@ -752,6 +935,8 @@
 
                     <div class="register-form-content">
 
+
+                        <!-- HEADER -->
 
                         <div class="mb-4">
 
@@ -774,8 +959,8 @@
 
                             <p class="subtitle mb-0">
 
-                                Register below to start using
-                                the Bike Rental Prediction system.
+                                Enter your details below to
+                                get started.
 
                             </p>
 
@@ -784,14 +969,16 @@
 
 
 
-                        <!-- Django Messages -->
+                        <!-- =================================================
+                             DJANGO MESSAGES
+                        ================================================== -->
 
                         {% if messages %}
 
                             {% for message in messages %}
 
                                 <div
-                                    class="alert alert-{{ message.tags }}"
+                                    class="alert alert-{{ message.tags }} mb-3"
                                     role="alert">
 
                                     <i
@@ -808,14 +995,21 @@
 
 
 
-                        <!-- Registration Form -->
+                        <!-- =================================================
+                             REGISTRATION FORM
+                        ================================================== -->
 
-                        <form method="POST">
+                        <form
+                            method="POST"
+                            id="registerForm"
+                            novalidate>
 
                             {% csrf_token %}
 
 
-                            <!-- USERNAME -->
+                            <!-- =================================================
+                                 USERNAME
+                            ================================================== -->
 
                             <div class="mb-3">
 
@@ -832,7 +1026,8 @@
                                 <div class="input-group">
 
 
-                                    <span class="input-group-text">
+                                    <span
+                                        class="input-group-text">
 
                                         <i class="bi bi-person"></i>
 
@@ -846,6 +1041,7 @@
                                         class="form-control"
                                         placeholder="Enter username"
                                         autocomplete="username"
+                                        minlength="3"
                                         required>
 
 
@@ -856,7 +1052,9 @@
 
 
 
-                            <!-- EMAIL -->
+                            <!-- =================================================
+                                 EMAIL
+                            ================================================== -->
 
                             <div class="mb-3">
 
@@ -873,7 +1071,8 @@
                                 <div class="input-group">
 
 
-                                    <span class="input-group-text">
+                                    <span
+                                        class="input-group-text">
 
                                         <i class="bi bi-envelope"></i>
 
@@ -897,7 +1096,9 @@
 
 
 
-                            <!-- PASSWORD -->
+                            <!-- =================================================
+                                 PASSWORD
+                            ================================================== -->
 
                             <div class="mb-3">
 
@@ -914,7 +1115,8 @@
                                 <div class="input-group">
 
 
-                                    <span class="input-group-text">
+                                    <span
+                                        class="input-group-text">
 
                                         <i class="bi bi-lock"></i>
 
@@ -928,6 +1130,7 @@
                                         class="form-control"
                                         placeholder="Create a password"
                                         autocomplete="new-password"
+                                        minlength="8"
                                         required>
 
 
@@ -948,12 +1151,40 @@
                                 </div>
 
 
+                                <!-- PASSWORD STRENGTH -->
+
+                                <div
+                                    class="password-strength"
+                                    id="passwordStrength">
+
+                                    <div class="strength-bar">
+
+                                        <div
+                                            class="strength-progress"
+                                            id="strengthProgress">
+                                        </div>
+
+                                    </div>
+
+
+                                    <div
+                                        class="strength-text"
+                                        id="strengthText">
+
+                                        Password strength
+
+                                    </div>
+
+                                </div>
+
+
                                 <div class="password-help">
 
-                                    <i class="bi bi-info-circle me-1"></i>
+                                    <i
+                                        class="bi bi-info-circle me-1">
+                                    </i>
 
-                                    Use a strong password to protect
-                                    your account.
+                                    Use at least 8 characters.
 
                                 </div>
 
@@ -962,7 +1193,9 @@
 
 
 
-                            <!-- CONFIRM PASSWORD -->
+                            <!-- =================================================
+                                 CONFIRM PASSWORD
+                            ================================================== -->
 
                             <div class="mb-4">
 
@@ -979,7 +1212,8 @@
                                 <div class="input-group">
 
 
-                                    <span class="input-group-text">
+                                    <span
+                                        class="input-group-text">
 
                                         <i class="bi bi-shield-lock"></i>
 
@@ -1013,15 +1247,25 @@
                                 </div>
 
 
+                                <div
+                                    class="password-help"
+                                    id="matchMessage">
+
+                                </div>
+
+
                             </div>
 
 
 
-                            <!-- REGISTER BUTTON -->
+                            <!-- =================================================
+                                 REGISTER BUTTON
+                            ================================================== -->
 
                             <button
                                 type="submit"
-                                class="btn register-btn w-100">
+                                class="btn register-btn w-100"
+                                id="registerButton">
 
                                 <i
                                     class="bi bi-person-plus-fill me-2">
@@ -1036,12 +1280,14 @@
 
 
 
-                        <!-- LOGIN -->
+                        <!-- =================================================
+                             LOGIN LINK
+                        ================================================== -->
 
                         <div class="text-center mt-4">
 
 
-                            <span class="text-muted">
+                            <span class="login-text">
 
                                 Already have an account?
 
@@ -1061,7 +1307,9 @@
 
 
 
-                        <!-- SECURITY -->
+                        <!-- =================================================
+                             SECURITY
+                        ================================================== -->
 
                         <div class="security-note mt-4">
 
@@ -1093,11 +1341,15 @@
 
 
 
-<!-- =================================
-     PASSWORD TOGGLE SCRIPT
-================================== -->
+<!-- =========================================================
+     JAVASCRIPT
+========================================================== -->
 
 <script>
+
+    /* =========================================================
+       PASSWORD TOGGLE
+    ========================================================== */
 
     const password =
         document.getElementById("password");
@@ -1114,59 +1366,41 @@
         function () {
 
             const isPassword =
-                password.getAttribute("type") === "password";
+                password.type === "password";
 
 
-            if (isPassword) {
+            password.type =
+                isPassword
+                    ? "text"
+                    : "password";
 
-                password.setAttribute(
-                    "type",
-                    "text"
-                );
 
-                passwordIcon.classList.remove(
-                    "bi-eye"
-                );
+            passwordIcon.classList.toggle(
+                "bi-eye",
+                !isPassword
+            );
 
-                passwordIcon.classList.add(
-                    "bi-eye-slash"
-                );
+            passwordIcon.classList.toggle(
+                "bi-eye-slash",
+                isPassword
+            );
 
-                togglePassword.setAttribute(
-                    "aria-label",
-                    "Hide password"
-                );
 
-            } else {
-
-                password.setAttribute(
-                    "type",
-                    "password"
-                );
-
-                passwordIcon.classList.remove(
-                    "bi-eye-slash"
-                );
-
-                passwordIcon.classList.add(
-                    "bi-eye"
-                );
-
-                togglePassword.setAttribute(
-                    "aria-label",
-                    "Show password"
-                );
-
-            }
+            togglePassword.setAttribute(
+                "aria-label",
+                isPassword
+                    ? "Hide password"
+                    : "Show password"
+            );
 
         }
     );
 
 
 
-    /* =========================
+    /* =========================================================
        CONFIRM PASSWORD TOGGLE
-    ========================== */
+    ========================================================== */
 
     const confirmPassword =
         document.getElementById(
@@ -1189,50 +1423,213 @@
         function () {
 
             const isPassword =
-                confirmPassword.getAttribute("type")
-                === "password";
+                confirmPassword.type === "password";
 
 
-            if (isPassword) {
+            confirmPassword.type =
+                isPassword
+                    ? "text"
+                    : "password";
 
-                confirmPassword.setAttribute(
-                    "type",
-                    "text"
-                );
 
-                confirmPasswordIcon.classList.remove(
-                    "bi-eye"
-                );
+            confirmPasswordIcon.classList.toggle(
+                "bi-eye",
+                !isPassword
+            );
 
-                confirmPasswordIcon.classList.add(
-                    "bi-eye-slash"
-                );
+            confirmPasswordIcon.classList.toggle(
+                "bi-eye-slash",
+                isPassword
+            );
 
-                toggleConfirmPassword.setAttribute(
-                    "aria-label",
-                    "Hide password"
-                );
 
-            } else {
+            toggleConfirmPassword.setAttribute(
+                "aria-label",
+                isPassword
+                    ? "Hide password"
+                    : "Show password"
+            );
 
-                confirmPassword.setAttribute(
-                    "type",
-                    "password"
-                );
+        }
+    );
 
-                confirmPasswordIcon.classList.remove(
-                    "bi-eye-slash"
-                );
 
-                confirmPasswordIcon.classList.add(
-                    "bi-eye"
-                );
 
-                toggleConfirmPassword.setAttribute(
-                    "aria-label",
-                    "Show password"
-                );
+    /* =========================================================
+       PASSWORD STRENGTH
+    ========================================================== */
 
+    const passwordStrength =
+        document.getElementById(
+            "passwordStrength"
+        );
+
+    const strengthProgress =
+        document.getElementById(
+            "strengthProgress"
+        );
+
+    const strengthText =
+        document.getElementById(
+            "strengthText"
+        );
+
+
+    password.addEventListener(
+        "input",
+        function () {
+
+            const value =
+                password.value;
+
+
+            if (!value) {
+
+                passwordStrength.style.display =
+                    "none";
+
+                return;
+
+            }
+
+
+            passwordStrength.style.display =
+                "block";
+
+
+            let score = 0;
+
+
+            if (value.length >= 8) {
+                score++;
+            }
+
+            if (/[A-Z]/.test(value)) {
+                score++;
+            }
+
+            if (/[a-z]/.test(value)) {
+                score++;
+            }
+
+            if (/[0-9]/.test(value)) {
+                score++;
+            }
+
+            if (/[^A-Za-z0-9]/.test(value)) {
+                score++;
+            }
+
+
+            let width = "20%";
+
+            let text = "Very weak";
+
+
+            if (score === 2) {
+
+                width = "40%";
+
+                text = "Weak";
+
+            }
+
+            else if (score === 3) {
+
+                width = "60%";
+
+                text = "Medium";
+
+            }
+
+            else if (score === 4) {
+
+                width = "80%";
+
+                text = "Strong";
+
+            }
+
+            else if (score >= 5) {
+
+                width = "100%";
+
+                text = "Very strong";
+
+            }
+
+
+            strengthProgress.style.width =
+                width;
+
+            strengthText.textContent =
+                text;
+
+        }
+    );
+
+
+
+    /* =========================================================
+       PASSWORD MATCH
+    ========================================================== */
+
+    const matchMessage =
+        document.getElementById(
+            "matchMessage"
+        );
+
+
+    function checkPasswordMatch() {
+
+        if (!confirmPassword.value) {
+
+            matchMessage.textContent =
+                "";
+
+            return;
+
+        }
+
+
+        if (
+            password.value ===
+            confirmPassword.value
+        ) {
+
+            matchMessage.innerHTML =
+                '<i class="bi bi-check-circle me-1"></i> Passwords match.';
+
+            matchMessage.style.color =
+                "#7fd69b";
+
+        }
+
+        else {
+
+            matchMessage.innerHTML =
+                '<i class="bi bi-x-circle me-1"></i> Passwords do not match.';
+
+            matchMessage.style.color =
+                "#ff8d98";
+
+        }
+
+    }
+
+
+    confirmPassword.addEventListener(
+        "input",
+        checkPasswordMatch
+    );
+
+
+    password.addEventListener(
+        "input",
+        function () {
+
+            if (confirmPassword.value) {
+                checkPasswordMatch();
             }
 
         }
@@ -1240,23 +1637,70 @@
 
 
 
-    /* =========================
-       PASSWORD MATCH CHECK
-    ========================== */
+    /* =========================================================
+       FORM VALIDATION
+    ========================================================== */
 
     const registerForm =
-        document.querySelector("form");
+        document.getElementById(
+            "registerForm"
+        );
 
 
     registerForm.addEventListener(
         "submit",
         function (event) {
 
+            const username =
+                document.getElementById(
+                    "username"
+                ).value.trim();
+
+
+            const email =
+                document.getElementById(
+                    "email"
+                ).value.trim();
+
+
             const passwordValue =
                 password.value;
 
+
             const confirmPasswordValue =
                 confirmPassword.value;
+
+
+            if (username.length < 3) {
+
+                event.preventDefault();
+
+                alert(
+                    "Username must contain at least 3 characters."
+                );
+
+                document
+                    .getElementById("username")
+                    .focus();
+
+                return;
+
+            }
+
+
+            if (passwordValue.length < 8) {
+
+                event.preventDefault();
+
+                alert(
+                    "Password must contain at least 8 characters."
+                );
+
+                password.focus();
+
+                return;
+
+            }
 
 
             if (
@@ -1272,6 +1716,25 @@
 
                 confirmPassword.focus();
 
+                return;
+
+            }
+
+
+            if (!email) {
+
+                event.preventDefault();
+
+                alert(
+                    "Please enter your email address."
+                );
+
+                document
+                    .getElementById("email")
+                    .focus();
+
+                return;
+
             }
 
         }
@@ -1281,7 +1744,9 @@
 
 
 
-<!-- Bootstrap JS -->
+<!-- =========================================================
+     BOOTSTRAP JS
+========================================================== -->
 
 <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js">
@@ -1291,4 +1756,3 @@
 </body>
 
 </html>
-

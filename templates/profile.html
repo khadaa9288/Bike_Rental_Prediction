@@ -8,1160 +8,404 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1">
 
-    <title>My Profile | Bike Rental Prediction</title>
+    <title>My Profile - Bike Rental Prediction</title>
 
-
-    <!-- =====================================================
-         BOOTSTRAP 5
-    ====================================================== -->
-
+    <!-- Bootstrap 5 -->
     <link
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
         rel="stylesheet">
 
-
-    <!-- =====================================================
-         BOOTSTRAP ICONS
-    ====================================================== -->
-
+    <!-- Bootstrap Icons -->
     <link
         rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
-
-    <!-- =====================================================
-         GOOGLE FONT
-    ====================================================== -->
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet">
-
-
-    <!-- =====================================================
-         CUSTOM CSS
-    ====================================================== -->
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 
     <style>
+
+        /* =========================================================
+           GLOBAL
+        ========================================================= */
 
         * {
             box-sizing: border-box;
         }
 
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-
         body {
-
             margin: 0;
-
-            min-height: 100vh;
-
-            font-family: "Inter", sans-serif;
-
+            background: #050505;
             color: #ffffff;
-
-            background:
-                radial-gradient(
-                    circle at 10% 10%,
-                    rgba(255, 255, 255, 0.045),
-                    transparent 28%
-                ),
-                radial-gradient(
-                    circle at 90% 90%,
-                    rgba(255, 255, 255, 0.035),
-                    transparent 30%
-                ),
-                #050505;
-
+            font-family: Arial, Helvetica, sans-serif;
+            min-height: 100vh;
         }
 
 
-        /* =====================================================
+        /* =========================================================
            NAVBAR
-        ====================================================== */
+        ========================================================= */
 
         .navbar {
-
-            background:
-                rgba(8, 8, 8, 0.96) !important;
-
-            border-bottom:
-                1px solid #242424;
-
-            padding: 14px 0;
-
-            box-shadow:
-                0 8px 30px
-                rgba(0, 0, 0, 0.35);
-
+            background: #0b0b0b !important;
+            border-bottom: 1px solid #222;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
         }
-
 
         .navbar-brand {
-
             color: #ffffff !important;
-
-            font-weight: 800;
-
-            letter-spacing: 0.2px;
-
+            font-weight: 700;
+            letter-spacing: 0.3px;
         }
 
-
-        .brand-icon {
-
-            width: 42px;
-
-            height: 42px;
-
-            display: inline-flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            border-radius: 12px;
-
-            background: #181818;
-
-            border: 1px solid #303030;
-
+        .navbar-brand i {
             color: #ffffff;
+            margin-right: 6px;
+        }
 
-            margin-right: 9px;
+        .nav-link {
+            color: #aaaaaa !important;
+            font-weight: 500;
+            transition: 0.3s;
+        }
 
+        .nav-link:hover,
+        .nav-link.active {
+            color: #ffffff !important;
+        }
+
+        .navbar-toggler {
+            border: 1px solid #444;
+        }
+
+        .navbar-toggler-icon {
+            filter: invert(1);
         }
 
 
-        .navbar-brand:hover .brand-icon {
+        /* =========================================================
+           PROFILE CONTAINER
+        ========================================================= */
 
-            background: #222222;
-
+        .profile-container {
+            max-width: 1250px;
+            margin: 50px auto;
+            padding: 0 20px;
         }
 
 
-        /* =====================================================
-           NAVIGATION LINKS
-        ====================================================== */
-
-        .nav-link-custom {
-
-            color: #999999;
-
-            text-decoration: none;
-
-            font-size: 0.88rem;
-
-            font-weight: 600;
-
-            margin-right: 18px;
-
-            transition: 0.2s ease;
-
-        }
-
-
-        .nav-link-custom:hover {
-
-            color: #ffffff;
-
-        }
-
-
-        /* =====================================================
-           LOGOUT BUTTON
-        ====================================================== */
-
-        .logout-btn {
-
-            border-radius: 10px;
-
-            padding: 8px 16px;
-
-            color: #cccccc;
-
-            background: #151515;
-
-            border: 1px solid #303030;
-
-            font-weight: 600;
-
-            transition: 0.2s ease;
-
-        }
-
-
-        .logout-btn:hover {
-
-            color: #ffffff;
-
-            background: #222222;
-
-            border-color: #454545;
-
-        }
-
-
-        /* =====================================================
-           MAIN CONTENT
-        ====================================================== */
-
-        .main-container {
-
-            padding-top: 55px;
-
-            padding-bottom: 30px;
-
-        }
-
-
-        /* =====================================================
-           PAGE HEADER
-        ====================================================== */
-
-        .page-header {
-
-            margin-bottom: 30px;
-
-        }
-
-
-        .page-title {
-
-            margin: 0;
-
-            color: #ffffff;
-
-            font-size: 2rem;
-
-            font-weight: 800;
-
-            letter-spacing: -0.5px;
-
-        }
-
-
-        .page-subtitle {
-
-            margin-top: 8px;
-
-            margin-bottom: 0;
-
-            color: #858585;
-
-            font-size: 0.92rem;
-
-            line-height: 1.7;
-
-        }
-
-
-        /* =====================================================
+        /* =========================================================
            PROFILE CARD
-        ====================================================== */
+        ========================================================= */
 
         .profile-card {
-
-            overflow: hidden;
-
-            border-radius: 22px;
-
-            background: #0d0d0d;
+            background: linear-gradient(
+                145deg,
+                #111111,
+                #080808
+            );
 
             border: 1px solid #252525;
-
-            box-shadow:
-                0 20px 55px
-                rgba(0, 0, 0, 0.35);
-
+            border-radius: 24px;
+            padding: 40px 30px;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.55);
         }
-
-
-        /* =====================================================
-           PROFILE COVER
-        ====================================================== */
-
-        .profile-cover {
-
-            position: relative;
-
-            height: 145px;
-
-            overflow: hidden;
-
-            background:
-                radial-gradient(
-                    circle at 80% 20%,
-                    rgba(255,255,255,0.09),
-                    transparent 25%
-                ),
-                radial-gradient(
-                    circle at 20% 90%,
-                    rgba(255,255,255,0.04),
-                    transparent 30%
-                ),
-                linear-gradient(
-                    135deg,
-                    #181818,
-                    #070707
-                );
-
-            border-bottom: 1px solid #222222;
-
-        }
-
-
-        .profile-cover::before {
-
-            content: "";
-
-            position: absolute;
-
-            width: 250px;
-
-            height: 250px;
-
-            border-radius: 50%;
-
-            right: -90px;
-
-            top: -140px;
-
-            border: 1px solid
-                rgba(255,255,255,0.06);
-
-        }
-
-
-        .profile-cover::after {
-
-            content: "";
-
-            position: absolute;
-
-            width: 180px;
-
-            height: 180px;
-
-            border-radius: 50%;
-
-            left: -90px;
-
-            bottom: -130px;
-
-            border: 1px solid
-                rgba(255,255,255,0.05);
-
-        }
-
-
-        /* =====================================================
-           PROFILE AVATAR
-        ====================================================== */
 
         .profile-avatar {
-
-            position: absolute;
-
-            z-index: 2;
-
-            left: 35px;
-
-            bottom: -53px;
-
-            width: 106px;
-
-            height: 106px;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
+            width: 105px;
+            height: 105px;
             border-radius: 50%;
 
-            color: #ffffff;
+            background: #ffffff;
+            color: #000000;
 
-            background: #151515;
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-            border: 6px solid #0d0d0d;
-
-            box-shadow:
-                0 10px 30px
-                rgba(0,0,0,0.5);
-
-            font-size: 46px;
-
-        }
-
-
-        /* =====================================================
-           PROFILE CONTENT
-        ====================================================== */
-
-        .profile-content {
-
-            padding:
-                72px 35px 35px;
-
-        }
-
-
-        .username {
-
-            color: #ffffff;
-
-            font-size: 1.65rem;
-
+            font-size: 42px;
             font-weight: 800;
 
-            margin-bottom: 6px;
+            margin: 0 auto 20px;
 
-            word-break: break-word;
-
+            box-shadow:
+                0 0 0 6px #181818,
+                0 0 35px rgba(255, 255, 255, 0.08);
         }
 
-
-        .email {
-
-            color: #858585;
-
-            font-size: 0.9rem;
-
-            word-break: break-word;
-
-        }
-
-
-        .user-badge {
-
-            display: inline-flex;
-
-            align-items: center;
-
-            gap: 6px;
-
-            margin-top: 13px;
-
-            padding:
-                7px 12px;
-
-            border-radius: 50px;
-
-            color: #cfcfcf;
-
-            background: #171717;
-
-            border: 1px solid #2c2c2c;
-
-            font-size: 0.74rem;
-
+        .profile-name {
+            font-size: 30px;
             font-weight: 700;
-
-        }
-
-
-        /* =====================================================
-           DIVIDER
-        ====================================================== */
-
-        .dark-divider {
-
-            border-color: #292929;
-
-            opacity: 1;
-
-        }
-
-
-        /* =====================================================
-           BUTTONS
-        ====================================================== */
-
-        .action-btn {
-
-            min-height: 47px;
-
-            border-radius: 11px;
-
-            font-weight: 700;
-
-            transition:
-                all 0.2s ease;
-
-        }
-
-
-        .primary-btn {
-
-            color: #000000;
-
-            background: #ffffff;
-
-            border: 1px solid #ffffff;
-
-        }
-
-
-        .primary-btn:hover {
-
-            color: #000000;
-
-            background: #e6e6e6;
-
-            border-color: #e6e6e6;
-
-            transform:
-                translateY(-1px);
-
-        }
-
-
-        .secondary-btn {
-
-            color: #cccccc;
-
-            background: #151515;
-
-            border: 1px solid #303030;
-
-        }
-
-
-        .secondary-btn:hover {
-
+            text-align: center;
             color: #ffffff;
+        }
 
-            background: #202020;
-
-            border-color: #454545;
-
+        .profile-email {
+            color: #888888;
+            text-align: center;
+            margin-top: 5px;
         }
 
 
-        /* =====================================================
-           STAT CARDS
-        ====================================================== */
+        /* =========================================================
+           BUTTONS
+        ========================================================= */
+
+        .btn-primary {
+            background: #ffffff;
+            border-color: #ffffff;
+            color: #000000;
+            font-weight: 700;
+        }
+
+        .btn-primary:hover {
+            background: #dddddd;
+            border-color: #dddddd;
+            color: #000000;
+        }
+
+        .btn-outline-light {
+            border-color: #444444;
+            color: #ffffff;
+        }
+
+        .btn-outline-light:hover {
+            background: #ffffff;
+            border-color: #ffffff;
+            color: #000000;
+        }
+
+        .btn-outline-danger {
+            border-color: #dc3545;
+            color: #ff6b78;
+        }
+
+        .btn-outline-danger:hover {
+            background: #dc3545;
+            color: #ffffff;
+        }
+
+
+        /* =========================================================
+           STATISTICS
+        ========================================================= */
 
         .stat-card {
-
+            background: #0d0d0d;
+            border: 1px solid #242424;
+            border-radius: 18px;
+            padding: 28px 20px;
+            text-align: center;
             height: 100%;
 
-            padding: 23px;
-
-            border-radius: 18px;
-
-            background: #0d0d0d;
-
-            border: 1px solid #252525;
-
-            box-shadow:
-                0 15px 40px
-                rgba(0,0,0,0.25);
-
-            transition:
-                transform 0.25s ease,
-                border-color 0.25s ease,
-                box-shadow 0.25s ease;
-
+            transition: 0.3s;
         }
-
 
         .stat-card:hover {
-
-            transform:
-                translateY(-3px);
-
-            border-color: #3a3a3a;
-
-            box-shadow:
-                0 20px 45px
-                rgba(0,0,0,0.35);
-
+            transform: translateY(-5px);
+            border-color: #444444;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
         }
-
 
         .stat-icon {
-
-            width: 50px;
-
-            height: 50px;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            margin-bottom: 17px;
-
-            border-radius: 14px;
-
+            font-size: 30px;
             color: #ffffff;
-
-            background: #181818;
-
-            border: 1px solid #303030;
-
-            font-size: 21px;
-
+            margin-bottom: 12px;
         }
-
 
         .stat-number {
-
-            color: #ffffff;
-
-            font-size: 1.65rem;
-
+            font-size: 32px;
             font-weight: 800;
-
-            line-height: 1.2;
-
-            word-break: break-word;
-
+            color: #ffffff;
         }
-
 
         .stat-label {
-
-            margin-top: 5px;
-
             color: #777777;
-
-            font-size: 0.82rem;
-
+            margin-top: 5px;
+            font-size: 14px;
         }
 
 
-        /* =====================================================
+        /* =========================================================
            HISTORY CARD
-        ====================================================== */
+        ========================================================= */
 
         .history-card {
-
-            overflow: hidden;
-
-            margin-top: 32px;
-
+            background: #0b0b0b;
+            border: 1px solid #242424;
             border-radius: 22px;
+            padding: 30px;
+            margin-top: 30px;
 
-            background: #0d0d0d;
-
-            border: 1px solid #252525;
-
-            box-shadow:
-                0 20px 55px
-                rgba(0,0,0,0.30);
-
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.5);
         }
-
-
-        /* =====================================================
-           HISTORY HEADER
-        ====================================================== */
-
-        .history-header {
-
-            padding:
-                25px 30px;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: space-between;
-
-            gap: 15px;
-
-            border-bottom:
-                1px solid #252525;
-
-        }
-
-
-        .history-heading-wrapper {
-
-            display: flex;
-
-            align-items: center;
-
-            gap: 14px;
-
-        }
-
-
-        .history-icon {
-
-            width: 46px;
-
-            height: 46px;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            border-radius: 13px;
-
-            color: #ffffff;
-
-            background: #181818;
-
-            border: 1px solid #303030;
-
-            font-size: 20px;
-
-        }
-
 
         .history-title {
-
-            margin: 0;
-
+            font-size: 25px;
+            font-weight: 700;
             color: #ffffff;
-
-            font-size: 1.15rem;
-
-            font-weight: 800;
-
         }
 
+        .history-title i {
+            margin-right: 7px;
+        }
 
         .history-subtitle {
-
-            margin-top: 5px;
-
             color: #777777;
-
-            font-size: 0.79rem;
-
+            margin-top: 5px;
         }
 
 
-        /* =====================================================
-           DARK TABLE
-        ====================================================== */
+        /* =========================================================
+           TABLE
+        ========================================================= */
 
         .table {
-
-            margin-bottom: 0;
-
+            margin-top: 25px;
             color: #ffffff;
-
+            border-color: #292929;
         }
 
-
-        .table-responsive {
-
-            background: #0d0d0d;
-
-        }
-
-
-        .table thead th {
-
-            padding:
-                16px 25px;
-
-            color: #888888;
-
-            background: #111111;
-
-            border-bottom:
-                1px solid #292929;
-
-            font-size: 0.72rem;
-
-            font-weight: 700;
-
-            text-transform: uppercase;
-
-            letter-spacing: 0.6px;
-
-            white-space: nowrap;
-
-        }
-
-
-        .table tbody td {
-
-            padding:
-                18px 25px;
-
-            color: #cccccc;
-
-            background: #0d0d0d;
-
-            border-color: #242424;
-
-            vertical-align: middle;
-
-        }
-
-
-        .table tbody tr {
-
-            transition:
-                background 0.2s ease;
-
-        }
-
-
-        .table tbody tr:hover td {
-
-            color: #ffffff;
-
+        .table thead {
             background: #151515;
-
         }
 
-
-        /* =====================================================
-           DATE BADGE
-        ====================================================== */
-
-        .date-badge {
-
-            display: inline-flex;
-
-            align-items: center;
-
-            gap: 8px;
-
-            color: #9a9a9a;
-
-            font-size: 0.84rem;
-
+        .table th {
+            color: #bbbbbb;
+            font-size: 13px;
+            font-weight: 600;
             white-space: nowrap;
+            border-color: #292929;
+            padding: 15px 12px;
+        }
 
+        .table td {
+            color: #dddddd;
+            border-color: #222222;
+            padding: 15px 12px;
+            vertical-align: middle;
+        }
+
+        .table-hover tbody tr {
+            transition: 0.2s;
+        }
+
+        .table-hover tbody tr:hover {
+            background-color: #151515;
+        }
+
+        .table strong {
+            color: #ffffff;
+        }
+
+        .price {
+            color: #ffffff !important;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .date-text {
+            color: #ffffff;
+        }
+
+        .time-text {
+            color: #666666;
+            font-size: 12px;
         }
 
 
-        .date-badge i {
+        /* =========================================================
+           BADGES
+        ========================================================= */
 
-            color: #777777;
+        .dark-badge {
+            display: inline-block;
 
-        }
+            padding: 6px 10px;
 
+            background: #181818;
+            border: 1px solid #303030;
 
-        /* =====================================================
-           PREDICTION BADGE
-        ====================================================== */
-
-        .prediction-badge {
-
-            display: inline-flex;
-
-            align-items: center;
-
-            gap: 7px;
-
-            padding:
-                7px 12px;
-
-            border-radius: 50px;
+            border-radius: 8px;
 
             color: #dddddd;
 
-            background: #171717;
-
-            border: 1px solid #303030;
-
-            font-size: 0.82rem;
-
-            font-weight: 700;
-
+            font-size: 12px;
         }
 
 
-        .prediction-badge i {
+        /* =========================================================
+           EMPTY STATE
+        ========================================================= */
 
-            color: #aaaaaa;
-
-        }
-
-
-        /* =====================================================
-           EMPTY HISTORY
-        ====================================================== */
-
-        .empty-history {
-
-            padding:
-                75px 20px;
-
+        .empty-state {
             text-align: center;
-
+            padding: 70px 20px;
         }
-
 
         .empty-icon {
-
-            width: 82px;
-
-            height: 82px;
-
-            margin: 0 auto;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            border-radius: 50%;
-
-            color: #777777;
-
-            background: #161616;
-
-            border: 1px solid #2b2b2b;
-
-            font-size: 34px;
-
+            font-size: 65px;
+            color: #444444;
+            margin-bottom: 20px;
         }
 
-
-        .empty-history h5 {
-
-            margin-top: 21px;
-
-            margin-bottom: 8px;
-
+        .empty-state h4 {
             color: #ffffff;
-
             font-weight: 700;
-
         }
 
-
-        .empty-history p {
-
-            margin-bottom: 0;
-
+        .empty-state p {
             color: #777777;
-
-            font-size: 0.88rem;
-
         }
 
 
-        /* =====================================================
+        /* =========================================================
            FOOTER
-        ====================================================== */
+        ========================================================= */
 
-        .footer {
-
-            padding:
-                30px 15px;
+        footer {
+            margin-top: 60px;
+            padding: 30px 20px;
 
             text-align: center;
 
             color: #555555;
 
-            font-size: 0.78rem;
+            border-top: 1px solid #171717;
 
+            background: #070707;
+        }
+
+        footer strong {
+            color: #888888;
         }
 
 
-        .footer span {
-
-            color: #777777;
-
-        }
-
-
-        /* =====================================================
-           RESPONSIVE - TABLET
-        ====================================================== */
-
-        @media (max-width: 991px) {
-
-            .main-container {
-
-                padding-top: 40px;
-
-            }
-
-        }
-
-
-        /* =====================================================
-           RESPONSIVE - MOBILE
-        ====================================================== */
+        /* =========================================================
+           MOBILE
+        ========================================================= */
 
         @media (max-width: 768px) {
 
-            .page-title {
-
-                font-size: 1.65rem;
-
+            .profile-container {
+                margin-top: 30px;
             }
 
-
-            .profile-avatar {
-
-                left: 50%;
-
-                transform:
-                    translateX(-50%);
-
+            .profile-card {
+                padding: 30px 20px;
             }
 
-
-            .profile-content {
-
-                padding-top: 75px;
-
-                text-align: center;
-
+            .profile-name {
+                font-size: 25px;
             }
 
-
-            .history-header {
-
-                align-items: flex-start;
-
-                flex-direction: column;
-
+            .history-card {
+                padding: 20px 15px;
             }
 
-
-            .history-header .btn {
-
-                width: 100%;
-
+            .history-title {
+                font-size: 21px;
             }
 
-
-            .nav-link-custom {
-
-                display: none;
-
-            }
-
-        }
-
-
-        /* =====================================================
-           RESPONSIVE - SMALL MOBILE
-        ====================================================== */
-
-        @media (max-width: 576px) {
-
-            .main-container {
-
-                padding-top: 30px;
-
-            }
-
-
-            .navbar {
-
-                padding:
-                    11px 0;
-
-            }
-
-
-            .navbar-brand {
-
-                font-size: 0.9rem;
-
-            }
-
-
-            .brand-icon {
-
-                width: 38px;
-
-                height: 38px;
-
-            }
-
-
-            .logout-btn {
-
-                padding:
-                    7px 11px;
-
-                font-size: 0.78rem;
-
-            }
-
-
-            .profile-cover {
-
-                height: 120px;
-
-            }
-
-
-            .profile-avatar {
-
-                width: 92px;
-
-                height: 92px;
-
-                bottom: -46px;
-
-                font-size: 39px;
-
-            }
-
-
-            .profile-content {
-
-                padding:
-                    63px 20px 25px;
-
-            }
-
-
-            .username {
-
-                font-size: 1.4rem;
-
-            }
-
-
-            .history-header {
-
-                padding:
-                    20px;
-
-            }
-
-
-            .history-heading-wrapper {
-
-                align-items: flex-start;
-
-            }
-
-
-            .table thead th,
-
-            .table tbody td {
-
-                padding:
-                    14px 15px;
-
-            }
-
-
-            .empty-history {
-
-                padding:
-                    60px 18px;
-
+            .stat-number {
+                font-size: 27px;
             }
 
         }
@@ -1174,86 +418,125 @@
 <body>
 
 
-<!-- =====================================================
+<!-- =========================================================
      NAVBAR
-====================================================== -->
+========================================================= -->
 
-<nav class="navbar navbar-dark">
-
+<nav class="navbar navbar-expand-lg">
 
     <div class="container">
 
-
-        <!-- BRAND -->
-
         <a
-            class="navbar-brand d-flex align-items-center"
+            class="navbar-brand"
             href="{% url 'home' %}">
 
-
-            <span class="brand-icon">
-
-                <i class="bi bi-bicycle"></i>
-
-            </span>
-
+            <i class="bi bi-bicycle"></i>
 
             Bike Rental Prediction
-
 
         </a>
 
 
-        <!-- RIGHT NAVIGATION -->
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarMenu"
+            aria-controls="navbarMenu"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
 
-        <div class="d-flex align-items-center">
+            <span class="navbar-toggler-icon"></span>
 
-
-            <a
-                href="{% url 'home' %}"
-                class="nav-link-custom">
-
-
-                <i class="bi bi-house-door me-1"></i>
-
-                Home
-
-
-            </a>
+        </button>
 
 
-            <!-- =================================================
-                 IMPORTANT:
-                 POST LOGOUT FOR DJANGO
-            ================================================== -->
+        <div
+            class="collapse navbar-collapse"
+            id="navbarMenu">
 
-            <form
-                method="POST"
-                action="{% url 'logout' %}"
-                class="m-0">
+            <ul class="navbar-nav ms-auto align-items-lg-center">
 
 
-                {% csrf_token %}
+                <!-- HOME -->
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="{% url 'home' %}">
+
+                        <i class="bi bi-house me-1"></i>
+
+                        Home
+
+                    </a>
+
+                </li>
 
 
-                <button
-                    type="submit"
-                    class="btn logout-btn">
+                <!-- PREDICTION -->
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="{% url 'predict' %}">
+
+                        <i class="bi bi-graph-up me-1"></i>
+
+                        Prediction
+
+                    </a>
+
+                </li>
 
 
-                    <i class="bi bi-box-arrow-right me-1"></i>
+                <!-- PROFILE -->
 
-                    Logout
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link active"
+                        href="{% url 'profile' %}">
+
+                        <i class="bi bi-person-circle me-1"></i>
+
+                        Profile
+
+                    </a>
+
+                </li>
 
 
-                </button>
+                <!-- LOGOUT -->
 
+                <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
 
-            </form>
+                    <form
+                        method="POST"
+                        action="{% url 'logout' %}"
+                        class="m-0">
 
+                        {% csrf_token %}
+
+                        <button
+                            type="submit"
+                            class="btn btn-outline-danger">
+
+                            <i class="bi bi-box-arrow-right me-1"></i>
+
+                            Logout
+
+                        </button>
+
+                    </form>
+
+                </li>
+
+            </ul>
 
         </div>
-
 
     </div>
 
@@ -1261,318 +544,172 @@
 
 
 
-<!-- =====================================================
-     MAIN CONTENT
-====================================================== -->
+<!-- =========================================================
+     MAIN PROFILE
+========================================================= -->
 
-<main class="container main-container">
-
-
-    <!-- =================================================
-         PAGE HEADER
-    ================================================== -->
-
-    <div class="page-header">
+<div class="profile-container">
 
 
-        <h1 class="page-title">
+    <!-- =====================================================
+         PROFILE INFORMATION
+    ===================================================== -->
 
-            My Profile
+    <div class="profile-card">
 
-        </h1>
+        <div class="profile-avatar">
+
+            {% if request.user.username %}
+
+                {{ request.user.username|first|upper }}
+
+            {% else %}
+
+                U
+
+            {% endif %}
+
+        </div>
 
 
-        <p class="page-subtitle">
+        <div class="profile-name">
 
-            Manage your account and view your
-            bike rental prediction history.
+            {{ request.user.username }}
 
-        </p>
+        </div>
 
+
+        <div class="profile-email">
+
+            {% if request.user.email %}
+
+                {{ request.user.email }}
+
+            {% else %}
+
+                No email address added
+
+            {% endif %}
+
+        </div>
+
+
+        <div class="text-center mt-4">
+
+            <a
+                href="{% url 'predict' %}"
+                class="btn btn-primary px-4">
+
+                <i class="bi bi-plus-circle me-1"></i>
+
+                New Prediction
+
+            </a>
+
+        </div>
 
     </div>
 
 
 
-    <!-- =================================================
-         PROFILE + STATISTICS
-    ================================================== -->
+    <!-- =====================================================
+         STATISTICS
+    ===================================================== -->
 
-    <div class="row g-4">
-
-
-        <!-- =================================================
-             PROFILE CARD
-        ================================================== -->
-
-        <div class="col-lg-5">
+    <div class="row g-4 mt-2">
 
 
-            <div class="profile-card">
+        <!-- TOTAL PREDICTIONS -->
 
+        <div class="col-md-4">
 
-                <!-- COVER -->
+            <div class="stat-card">
 
-                <div class="profile-cover">
+                <div class="stat-icon">
 
-
-                    <div class="profile-avatar">
-
-                        <i class="bi bi-person-fill"></i>
-
-                    </div>
-
+                    <i class="bi bi-clipboard-data"></i>
 
                 </div>
 
+                <div class="stat-number">
 
-
-                <!-- PROFILE DETAILS -->
-
-                <div class="profile-content">
-
-
-                    <!-- USERNAME -->
-
-                    <div class="username">
-
-                        {{ request.user.username }}
-
-                    </div>
-
-
-                    <!-- EMAIL -->
-
-                    <div class="email">
-
-                        <i class="bi bi-envelope me-1"></i>
-
-                        {% if request.user.email %}
-
-                            {{ request.user.email }}
-
-                        {% else %}
-
-                            No email address added
-
-                        {% endif %}
-
-                    </div>
-
-
-                    <!-- STATUS -->
-
-                    <span class="user-badge">
-
-                        <i class="bi bi-patch-check-fill"></i>
-
-                        Registered User
-
-                    </span>
-
-
-                    <hr class="dark-divider my-4">
-
-
-                    <!-- DASHBOARD BUTTON -->
-
-                    <div class="d-grid">
-
-
-                        <a
-                            href="{% url 'home' %}"
-                            class="btn primary-btn action-btn">
-
-
-                            <i
-                                class="bi bi-house-door me-2">
-                            </i>
-
-
-                            Back to Dashboard
-
-
-                        </a>
-
-
-                    </div>
-
+                    {{ total_predictions|default:"0" }}
 
                 </div>
 
+                <div class="stat-label">
+
+                    Total Predictions
+
+                </div>
 
             </div>
-
 
         </div>
 
 
+        <!-- ACCOUNT -->
 
-        <!-- =================================================
-             STATISTICS
-        ================================================== -->
+        <div class="col-md-4">
 
-        <div class="col-lg-7">
+            <div class="stat-card">
 
+                <div class="stat-icon">
 
-            <div class="row g-4">
-
-
-                <!-- TOTAL PREDICTIONS -->
-
-                <div class="col-sm-6">
-
-
-                    <div class="stat-card">
-
-
-                        <div class="stat-icon">
-
-                            <i class="bi bi-graph-up-arrow"></i>
-
-                        </div>
-
-
-                        <div class="stat-number">
-
-
-                            {% if history %}
-
-                                {{ history|length }}
-
-                            {% else %}
-
-                                0
-
-                            {% endif %}
-
-
-                        </div>
-
-
-                        <div class="stat-label">
-
-                            Total Predictions
-
-                        </div>
-
-
-                    </div>
-
+                    <i class="bi bi-person-check"></i>
 
                 </div>
 
+                <div class="stat-number">
 
-
-                <!-- ACCOUNT STATUS -->
-
-                <div class="col-sm-6">
-
-
-                    <div class="stat-card">
-
-
-                        <div class="stat-icon">
-
-                            <i class="bi bi-person-check"></i>
-
-                        </div>
-
-
-                        <div class="stat-number">
-
-                            Active
-
-                        </div>
-
-
-                        <div class="stat-label">
-
-                            Account Status
-
-                        </div>
-
-
-                    </div>
-
+                    <i class="bi bi-check-circle-fill"></i>
 
                 </div>
 
+                <div class="stat-label">
 
-
-                <!-- ML SYSTEM -->
-
-                <div class="col-sm-6">
-
-
-                    <div class="stat-card">
-
-
-                        <div class="stat-icon">
-
-                            <i class="bi bi-cpu"></i>
-
-                        </div>
-
-
-                        <div class="stat-number">
-
-                            ML
-
-                        </div>
-
-
-                        <div class="stat-label">
-
-                            Prediction Technology
-
-                        </div>
-
-
-                    </div>
-
+                    Account Active
 
                 </div>
-
-
-
-                <!-- HISTORY -->
-
-                <div class="col-sm-6">
-
-
-                    <div class="stat-card">
-
-
-                        <div class="stat-icon">
-
-                            <i class="bi bi-clock-history"></i>
-
-                        </div>
-
-
-                        <div class="stat-number">
-
-                            History
-
-                        </div>
-
-
-                        <div class="stat-label">
-
-                            Prediction Records
-
-                        </div>
-
-
-                    </div>
-
-
-                </div>
-
 
             </div>
 
+        </div>
+
+
+        <!-- HISTORY -->
+
+        <div class="col-md-4">
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+
+                    <i class="bi bi-bicycle"></i>
+
+                </div>
+
+                <div class="stat-number">
+
+                    {% if predictions %}
+
+                        {{ predictions|length }}
+
+                    {% else %}
+
+                        0
+
+                    {% endif %}
+
+                </div>
+
+                <div class="stat-label">
+
+                    Rental Predictions
+
+                </div>
+
+            </div>
 
         </div>
 
@@ -1583,267 +720,316 @@
 
     <!-- =====================================================
          PREDICTION HISTORY
-    ====================================================== -->
+    ===================================================== -->
 
     <div class="history-card">
 
 
-        <!-- HISTORY HEADER -->
+        <!-- HEADER -->
 
-        <div class="history-header">
-
-
-            <div class="history-heading-wrapper">
+        <div
+            class="d-flex justify-content-between align-items-center flex-wrap gap-3">
 
 
-                <div class="history-icon">
+            <div>
+
+                <div class="history-title">
 
                     <i class="bi bi-clock-history"></i>
 
-                </div>
-
-
-                <div>
-
-
-                    <h3 class="history-title">
-
-                        Prediction History
-
-                    </h3>
-
-
-                    <div class="history-subtitle">
-
-                        Your previous bike rental
-                        demand predictions
-
-                    </div>
-
+                    Prediction History
 
                 </div>
 
+                <div class="history-subtitle">
+
+                    Your previous bike rental predictions
+
+                </div>
 
             </div>
 
 
-
-            <!-- NEW PREDICTION -->
-
             <a
-                href="{% url 'home' %}"
-                class="btn primary-btn action-btn">
+                href="{% url 'predict' %}"
+                class="btn btn-primary">
 
-
-                <i class="bi bi-plus-lg me-1"></i>
+                <i class="bi bi-plus-circle me-1"></i>
 
                 New Prediction
 
-
             </a>
-
 
         </div>
 
 
 
         <!-- =================================================
-             IF HISTORY EXISTS
-        ================================================== -->
+             HISTORY EXISTS
+        ================================================= -->
 
-        {% if history %}
+        {% if predictions %}
 
+        <div class="table-responsive">
 
-            <div class="table-responsive">
+            <table class="table table-dark table-hover align-middle">
 
+                <thead>
 
-                <table
-                    class="table table-hover align-middle">
+                    <tr>
 
+                        <th>#</th>
 
-                    <thead>
+                        <th>Date</th>
 
+                        <th>Bike Type</th>
 
-                        <tr>
+                        <th>Location</th>
 
+                        <th>Rental Days</th>
 
-                            <th>
+                        <th>Distance</th>
 
-                                <i
-                                    class="bi bi-calendar3 me-1">
-                                </i>
+                        <th>Season</th>
 
-                                Date
+                        <th>Weather</th>
 
-                            </th>
+                        <th>Price / Day</th>
 
+                        <th>Total Price</th>
 
-                            <th>
+                    </tr>
 
-                                <i
-                                    class="bi bi-bar-chart-line me-1">
-                                </i>
+                </thead>
 
-                                Prediction
 
-                            </th>
+                <tbody>
 
 
-                        </tr>
+                {% for prediction in predictions %}
 
+                    <tr>
 
-                    </thead>
 
+                        <!-- NUMBER -->
 
-                    <tbody>
+                        <td>
 
+                            <span class="dark-badge">
 
-                        {% for item in history %}
+                                {{ forloop.counter }}
 
+                            </span>
 
-                            <tr>
+                        </td>
 
 
-                                <!-- DATE -->
+                        <!-- DATE -->
 
-                                <td>
+                        <td>
 
+                            <div class="date-text">
 
-                                    <span class="date-badge">
+                                {{ prediction.created_at|date:"d M Y" }}
 
+                            </div>
 
-                                        <i
-                                            class="bi bi-calendar-event">
-                                        </i>
+                            <div class="time-text">
 
+                                {{ prediction.created_at|date:"h:i A" }}
 
-                                        {{ item.created_at }}
+                            </div>
 
+                        </td>
 
-                                    </span>
 
+                        <!-- BIKE -->
 
-                                </td>
+                        <td>
 
+                            <strong>
 
-                                <!-- PREDICTION -->
+                                {{ prediction.bike_type|default:"-" }}
 
-                                <td>
+                            </strong>
 
+                        </td>
 
-                                    <span
-                                        class="prediction-badge">
 
+                        <!-- LOCATION -->
 
-                                        <i
-                                            class="bi bi-check-circle-fill">
-                                        </i>
+                        <td>
 
+                            {{ prediction.location|default:"-" }}
 
-                                        {{ item.prediction }}
+                        </td>
 
 
-                                    </span>
+                        <!-- RENTAL DAYS -->
 
+                        <td>
 
-                                </td>
+                            {{ prediction.rental_days|default:"-" }}
 
+                        </td>
 
-                            </tr>
 
+                        <!-- DISTANCE -->
 
-                        {% endfor %}
+                        <td>
 
+                            {% if prediction.distance_km != None %}
 
-                    </tbody>
+                                {{ prediction.distance_km|floatformat:2 }} km
 
+                            {% else %}
 
-                </table>
+                                -
 
+                            {% endif %}
 
-            </div>
+                        </td>
+
+
+                        <!-- SEASON -->
+
+                        <td>
+
+                            {{ prediction.season|default:"-" }}
+
+                        </td>
+
+
+                        <!-- WEATHER -->
+
+                        <td>
+
+                            {{ prediction.weather_condition|default:"-" }}
+
+                        </td>
+
+
+                        <!-- PRICE PER DAY -->
+
+                        <td class="price">
+
+                            {% if prediction.predicted_price_per_day != None %}
+
+                                ₹{{ prediction.predicted_price_per_day|floatformat:2 }}
+
+                            {% else %}
+
+                                -
+
+                            {% endif %}
+
+                        </td>
+
+
+                        <!-- TOTAL -->
+
+                        <td class="price">
+
+                            {% if prediction.total_rental_price != None %}
+
+                                ₹{{ prediction.total_rental_price|floatformat:2 }}
+
+                            {% else %}
+
+                                -
+
+                            {% endif %}
+
+                        </td>
+
+
+                    </tr>
+
+                {% endfor %}
+
+
+                </tbody>
+
+            </table>
+
+        </div>
 
 
         <!-- =================================================
-             IF NO HISTORY
-        ================================================== -->
+             NO HISTORY
+        ================================================= -->
 
         {% else %}
 
+        <div class="empty-state">
 
-            <div class="empty-history">
+            <div class="empty-icon">
 
-
-                <div class="empty-icon">
-
-
-                    <i
-                        class="bi bi-clock-history">
-                    </i>
-
-
-                </div>
-
-
-                <h5>
-
-                    No Prediction History
-
-                </h5>
-
-
-                <p>
-
-                    You haven't made any bike rental
-                    predictions yet.
-
-                </p>
-
-
-                <a
-                    href="{% url 'home' %}"
-                    class="btn primary-btn action-btn mt-4">
-
-
-                    <i
-                        class="bi bi-graph-up-arrow me-2">
-                    </i>
-
-
-                    Make Your First Prediction
-
-
-                </a>
-
+                <i class="bi bi-clipboard-x"></i>
 
             </div>
 
+
+            <h4>
+
+                No Predictions Yet
+
+            </h4>
+
+
+            <p>
+
+                You haven't made any bike rental predictions yet.
+
+            </p>
+
+
+            <a
+                href="{% url 'predict' %}"
+                class="btn btn-primary px-4">
+
+                <i class="bi bi-bicycle me-1"></i>
+
+                Make Your First Prediction
+
+            </a>
+
+        </div>
 
         {% endif %}
 
 
     </div>
 
-
-</main>
-
+</div>
 
 
-<!-- =====================================================
+
+<!-- =========================================================
      FOOTER
-====================================================== -->
+========================================================= -->
 
-<footer class="footer">
+<footer>
 
-    Powered by <span>KHADAA9288</span>
+    <div>
+
+        Powered by <strong>KHADAA9288</strong>
+
+    </div>
+
+    <small>
+
+        Bike Rental Prediction System
+
+    </small>
 
 </footer>
 
 
 
-<!-- =====================================================
+<!-- =========================================================
      BOOTSTRAP JS
-====================================================== -->
+========================================================= -->
 
 <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js">
